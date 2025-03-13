@@ -24,7 +24,7 @@ public:
     std::vector<std::vector<int>> foreground_layer_data_sets;
 
     std::vector<int> tilemap_collision_data;
-    TileCollisionData PlaceFree(const ufo::Rectangle& _rectangle);
+    TileCollisionData GetTileCollisionData(const ufo::Rectangle& _rectangle, std::string _tileset);
     
     int number_of_rows;
     int number_of_columns;
