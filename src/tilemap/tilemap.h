@@ -8,8 +8,15 @@
 #include "../asset_manager/get_rect_from_index.h"
 #include "../json/json.h"
 #include "../actor/actor.h"
+#include "../shapes/rectangle.h"
+#include "../ufo_maths/ufo_maths.h"
 
 class Camera;
+
+struct TileCollisionData{
+    bool place_free;
+    std::vector<int> tiles;
+};
 
 class Tilemap{
 public:
@@ -17,6 +24,7 @@ public:
     std::vector<std::vector<int>> foreground_layer_data_sets;
 
     std::vector<int> tilemap_collision_data;
+    TileCollisionData PlaceFree(const ufo::Rectangle& _rectangle);
     
     int number_of_rows;
     int number_of_columns;

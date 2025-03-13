@@ -2,6 +2,7 @@
 #include <unordered_map>
 #include <string>
 #include <cmath>
+#include "../ufo_maths/ufo_maths.h"
 #include "tilemap.h"
 #include "tileset_data.h"
 #include "../external/olcPixelGameEngine.h"
@@ -10,6 +11,35 @@
 #include "../ufo_engine/ufo_engine.h"
 #include "../console/console.h"
 #include "../json/json.h"
+#include "../shapes/rectangle.h"
+
+TileCollisionData Tilemap::PlaceFree(const ufo::Rectangle& _rectangle){
+    int number_of_tiles = 0;
+
+    int walking_speed_dt = int(Engine::Get().GetDeltaTime());
+
+    std::vector<int> overlapped_tiles;
+    bool place_free = true;
+
+    for(int yy = (int)_rectangle.position.y/16 - (2); yy <= (int)_rectangle.position.y/16 + (2); yy++){
+        for(int xx = (int)_rectangle.position.x/16 - (2+walking_speed_dt/16); xx <= (int)_rectangle.position.x/16 + (2+walking_speed_dt/16); xx++){
+            TilesetData data = GetTilesetData("collision_tiles");
+
+            int tile_id = tilemap_collision_data[xx+yy*number_of_columns] - data.tileset_start_id + 1;
+
+            if(tile_id != 0){
+                if(ufoMaths::RectangleVsRectangle(_rectangle, ufo::Rectangle(Vector2f(xx*16.0f,yy*16.0f), Vector2f(16.0f,16.0f)))){
+                    overlapped_tiles.push_back(tile_id);
+                    if(tile_id == 1) place_free = false;
+                }
+            }
+
+            number_of_tiles++;
+        }
+    }
+
+    return TileCollisionData{place_free,overlapped_tiles};
+}
 
 void Tilemap::Load(const Json& _json){
 
