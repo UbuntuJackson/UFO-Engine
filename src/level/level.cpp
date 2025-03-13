@@ -410,7 +410,7 @@ void Level::LoadActors(JsonDictionary& _json){
     JsonArray objects = _json.Get("objects").AsArray();
     
     for(auto&& _object : objects.Iterable()){
-        auto frogatto_actors = tilemap.GetTilesetData("actors");
+        /*auto frogatto_actors = tilemap.GetTilesetData("actors");
 
         Console::Out("Is object null?", _object->IsNull());
 
@@ -419,7 +419,7 @@ void Level::LoadActors(JsonDictionary& _json){
             case 2:
                 //NewActor(TestCollisionBody::Load(_object));
                 break;
-        }
+        }*/
         OnLoadActors(_object->AsDictionary());
     }
 }
