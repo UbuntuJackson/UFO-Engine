@@ -169,6 +169,10 @@ void Level::Load(){
     for(auto&& layer : level_json.Get("layers").AsArray().Iterable()){
         auto layer_dictionary = layer->AsDictionary();
 
+        if(OnLoadLayer(layer_dictionary)){
+            continue;
+        }
+
         if(layer_dictionary.Get("type").AsString() == "imagelayer" && (layer_dictionary.Get("class").AsString() == "" || layer_dictionary.Get("class").AsString() == "BackgroundImage")){
             std::string background_path = layer_dictionary.Get("image").AsString();
 
@@ -382,7 +386,6 @@ void Level::Load(){
             }
         }
 
-        OnLoadLayer(layer_dictionary);
     }
     
     NewActor(std::make_unique<Shape<ufo::Rectangle>>(ufo::Rectangle(olc::vf2d(0.0f, 0.0f), level_size), olc::vf2d(0.0f, 0.0f))); //This just shows the size of the area.
@@ -402,8 +405,8 @@ void Level::OnLoad(JsonDictionary& _level_json){
     
 }
 
-void Level::OnLoadLayer(JsonDictionary& _layer_json){
-
+bool Level::OnLoadLayer(JsonDictionary& _layer_json){
+    return false;
 }
 
 void Level::LoadActors(JsonDictionary& _json){

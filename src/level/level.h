@@ -138,7 +138,7 @@ public:
     virtual void OnLoadJsonCustom(Json& _json);
     void Load();
     virtual void OnLoad(JsonDictionary& _level_json);
-    virtual void OnLoadLayer(JsonDictionary& _layer_json);
+    virtual bool OnLoadLayer(JsonDictionary& _layer_json);
     void LoadActors(JsonDictionary& _json);
     virtual void OnLoadActors(JsonDictionary& _actor_json);
     //template<typename tActor> LoadActor(){
