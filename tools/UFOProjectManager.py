@@ -107,7 +107,7 @@ class ProjectManager:
         type_index : int = 0
 
         generated_h = ""
-
+        generated_h += "#pragma once"
         generated_h += "#include <json_variant.h>\n"
         generated_h += "#include <ufo_maths.h>\n"
         generated_h += "#include <console.h>\n"
