@@ -20,6 +20,15 @@ struct TileCollisionData{
 
 class Tilemap{
 public:
+    int EMPTY = 0;
+    int FULL = 1;
+    int HALF_BOTTOM = 2;
+    int HALF_TOP = 3;
+    int HALF_LEFT = 4;
+    int HALF_RIGHT = 5;
+    int SLOPE45_BOTTOM_RIGHT = 10;
+    int SLOPE45_BOTTOM_LEFT = 15;
+
     std::vector<std::vector<int>> layer_data_sets;
     std::vector<std::vector<int>> foreground_layer_data_sets;
 

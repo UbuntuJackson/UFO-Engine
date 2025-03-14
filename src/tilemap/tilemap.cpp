@@ -4,6 +4,7 @@
 #include <cmath>
 #include "../ufo_maths/ufo_maths.h"
 #include "tilemap.h"
+#include "../shapes/ray2.h"
 #include "tileset_data.h"
 #include "../external/olcPixelGameEngine.h"
 #include "../asset_manager/get_rect_from_index.h"
@@ -27,10 +28,30 @@ TileCollisionData Tilemap::GetTileCollisionData(const ufo::Rectangle& _rectangle
 
             int tile_id = tilemap_collision_data[xx+yy*number_of_columns] - data.tileset_start_id + 1;
 
-            if(tile_id != 0){
+            if(tile_id != EMPTY){
                 if(ufoMaths::RectangleVsRectangle(_rectangle, ufo::Rectangle(Vector2f(xx*16.0f,yy*16.0f), Vector2f(16.0f,16.0f)))){
                     overlapped_tiles.push_back(tile_id);
-                    if(tile_id == 1) place_free = false;
+                    if(tile_id == FULL) place_free = false;
+                    if(tile_id == SLOPE45_BOTTOM_RIGHT){
+                        if(
+                            ufoMaths::RayVsRay(
+                                Ray2(_rectangle.position+Vector2f(0.0f, _rectangle.size.y), _rectangle.position+_rectangle.size),
+                                Ray2(Vector2f(xx*16.0f,yy*16.0f) + Vector2f(0.0f, 16.0f), Vector2f(xx*16.0f,yy*16.0f) + Vector2f(16.0f, 0.0f))).is_hit)
+                        {
+                            
+                            place_free = false;
+                        }
+                    }
+                    if(tile_id == SLOPE45_BOTTOM_LEFT){
+                        if(
+                            ufoMaths::RayVsRay(
+                                Ray2(_rectangle.position+Vector2f(0.0f, _rectangle.size.y), _rectangle.position+_rectangle.size),
+                                Ray2(Vector2f(xx*16.0f,yy*16.0f) + Vector2f(0.0f, 0.0f), Vector2f(xx*16.0f,yy*16.0f) + Vector2f(16.0f, 16.0f))).is_hit)
+                        {
+                            
+                            place_free = false;
+                        }
+                    }
                 }
             }
 
