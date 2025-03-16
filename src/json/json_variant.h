@@ -252,7 +252,10 @@ public:
         dictionary[_key] = std::make_unique<JsonVariant>(_value);
     }
 
+    JsonVariant invalid_json_variant;
+
     JsonVariant& Get(std::string _key){
+        if(!dictionary.count(_key)) return invalid_json_variant;
         return *dictionary[_key];
     }
 
