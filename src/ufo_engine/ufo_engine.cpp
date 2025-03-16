@@ -21,7 +21,10 @@ void Engine::NewProfile(std::string _name, std::string _profile_path){
 }
 
 void Engine::Quit(){quit = true;}
+
 float Engine::GetDeltaTime(){return delta_time;}
+
+float Engine::GetTime(){return engine_up_time;}
 
 void Engine::GoToLevel(std::unique_ptr<Level> _level, std::string _path, int _level_format){
     _level->path = _path;
@@ -97,6 +100,7 @@ Engine::OnUpdate(float _delta_time){
     //if(SingleKeyboard::Get().GetKey(olc::ESCAPE).is_held) Quit();
 
     delta_time = _delta_time;
+    engine_up_time += delta_time;
     pixel_game_engine.Clear(background_colour);
     pixel_game_engine.SetPixelMode(olc::Pixel::NORMAL);
     if(queued_levels.size() > 0){

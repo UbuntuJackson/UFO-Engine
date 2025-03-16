@@ -68,6 +68,10 @@ public:
     float delta_time;
     float GetDeltaTime();
 
+    //How long has the engine been up and running?
+    float engine_up_time = 0.0f;
+    float GetTime();
+
     bool all_shapes_visible = false;
     bool edit_mode = false;
     bool modified_collision_lines_visible = false;
