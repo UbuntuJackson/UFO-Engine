@@ -26,6 +26,12 @@ struct WrappedText{
 
 class Widget : public Actor{
 public:
+
+    enum TextWrappingModes{
+        CHAR_MEETS_BORDER,
+        WORD_MEETS_BORDER
+    };
+
     bool visible = true;
 //protected:
     ufo::Rectangle rectangle;

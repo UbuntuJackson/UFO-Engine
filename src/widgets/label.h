@@ -14,6 +14,7 @@ public:
     std::string text;
     olc::Pixel colour;
     Vector2f scale;
+    int text_wrapping_mode = Widget::TextWrappingModes::CHAR_MEETS_BORDER;
     Label(Vector2f _local_position, Vector2f _size, std::string _text = "Hello World", olc::Pixel _colour = olc::WHITE, Vector2f _scale = {1.0f, 1.0f}) : Widget(_local_position, _size), text{_text}, colour{_colour}, scale{_scale}{
 
     }
@@ -21,8 +22,14 @@ public:
     void OnWidgetDraw(){
         if(!visible) return;
         theme->OnDraw(this);
-        WrappedText wrapped_text = GetWrappedTextWrapOnCharMeetsBorder(text);
-        Graphics::Get().DrawString(GetGlobalPosition(), wrapped_text.text, colour, scale);
+        if(text_wrapping_mode == Widget::TextWrappingModes::CHAR_MEETS_BORDER){
+            WrappedText wrapped_text = GetWrappedTextWrapOnCharMeetsBorder(text);
+            Graphics::Get().DrawString(GetGlobalPosition(), wrapped_text.text, colour, scale);
+        }
+        else{
+            WrappedText wrapped_text = GetWrappedTextWrapOnSpace(text);
+            Graphics::Get().DrawString(GetGlobalPosition(), wrapped_text.text, colour, scale);
+        }
     }
 };
 
