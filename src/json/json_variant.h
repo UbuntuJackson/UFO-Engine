@@ -189,19 +189,25 @@ public:
 
 class JsonDictionary : public JsonVariant{
 public:
-    JsonDictionary() = default;
+    JsonDictionary(){
+        is_null = false;
+        invalid_json_variant.is_null = true;
+    }
 
     JsonDictionary& operator=(JsonDictionary&& _other){
-        for(auto&& [k,_other] : _other.dictionary) dictionary[k] = (std::move(_other));
+        is_null = _other.is_null;
+        for(auto&& [k,value] : _other.dictionary) dictionary[k] = (std::move(value));
         return *this;
     }
 
     JsonDictionary(JsonDictionary&& _other){
-        for(auto&& [k,_other] : _other.dictionary) dictionary[k] = (std::move(_other));
+        is_null = _other.is_null;
+        for(auto&& [k,value] : _other.dictionary) dictionary[k] = (std::move(value));
     }
 
     JsonDictionary(JsonDictionary& _other){
-        for(auto&& [k,_other] : _other.dictionary) dictionary[k] = (std::move(_other));
+        is_null = _other.is_null;
+        for(auto&& [k,value] : _other.dictionary) dictionary[k] = (std::move(value));
     }
 
     std::map<std::string, std::unique_ptr<JsonVariant>> dictionary;
@@ -255,7 +261,9 @@ public:
     JsonVariant invalid_json_variant;
 
     JsonVariant& Get(std::string _key){
-        if(!dictionary.count(_key)) return invalid_json_variant;
+        if(!dictionary.count(_key)){
+            return invalid_json_variant;
+        }
         return *dictionary[_key];
     }
 
