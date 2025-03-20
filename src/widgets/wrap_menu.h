@@ -86,7 +86,7 @@ public:
         }
 
         if(buttons[selected_index]->GetGlobalPosition().y - spacing < 0.0f){
-            local_position.y -= (buttons[selected_index]->GetRectangle().size.y - spacing);
+            local_position.y += (buttons[selected_index]->GetRectangle().size.y - spacing);
         }
     }
 
