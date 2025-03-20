@@ -67,12 +67,12 @@ public:
         if(_down){
             selected_index++;
 
-            if(buttons[ufoMaths::Wrapi(selected_index, 0, int(buttons.size()))]->GetGlobalPosition().y > Engine::Get().pixel_game_engine.GetWindowSizeInPixles().y){
+            /*if(buttons[ufoMaths::Wrapi(selected_index, 0, int(buttons.size()))]->GetGlobalPosition().y > Engine::Get().pixel_game_engine.GetWindowSizeInPixles().y){
                 local_position.y-=(buttons[ufoMaths::Wrapi(selected_index, 0, int(buttons.size()))]->rectangle.size.y+spacing);
             }
             if(selected_index == buttons.size()){
                 local_position.y = original_position.y;
-            }
+            }*/
 
             selected_index = ufoMaths::Wrapi(selected_index, 0, int(buttons.size()));
 
@@ -81,15 +81,15 @@ public:
             buttons[selected_index]->on_pressed(this, buttons[selected_index]);
         }
 
-        if(buttons[selected_index]->GetGlobalPosition().y > Engine::Get().pixel_game_engine.GetWindowSizeInPixles().y){
+        if(buttons[selected_index]->GetGlobalPosition().y + spacing > Engine::Get().pixel_game_engine.GetWindowSizeInPixles().y){
             Console::PrintLine("Button was on line", buttons[selected_index]->GetGlobalPosition().y);
-            local_position.y -= (buttons[selected_index]->GetRectangle().size.y);
+            local_position.y -= (buttons[selected_index]->GetRectangle().size.y + spacing);
             
         }
 
-        if(buttons[selected_index]->GetGlobalPosition().y < 0.0f){
+        if(buttons[selected_index]->GetGlobalPosition().y - spacing < 0.0f){
             Console::PrintLine("Button was on line", buttons[selected_index]->GetGlobalPosition().y);
-            local_position.y += (buttons[selected_index]->GetRectangle().size.y);
+            local_position.y += (buttons[selected_index]->GetRectangle().size.y - spacing);
         }
     }
 
