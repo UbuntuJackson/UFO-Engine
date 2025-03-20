@@ -80,6 +80,14 @@ public:
         if(_select){
             buttons[selected_index]->on_pressed(this, buttons[selected_index]);
         }
+
+        if(buttons[selected_index]->GetGlobalPosition().y - spacing > Engine::Get().pixel_game_engine.GetWindowSizeInPixles().y){
+            local_position.y -= (buttons[selected_index]->GetRectangle().size.y - spacing);
+        }
+
+        if(buttons[selected_index]->GetGlobalPosition().y + spacing < 0.0f){
+            local_position.y -= (buttons[selected_index]->GetRectangle().size.y + spacing);
+        }
     }
 
     void ControlWithMouse(){
