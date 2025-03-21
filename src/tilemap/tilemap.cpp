@@ -20,8 +20,8 @@ TileCollisionData Tilemap::GetTileCollisionData(const ufo::Rectangle& _rectangle
     std::vector<int> overlapped_tiles;
     bool place_free = true;
 
-    for(int yy = (int)_rectangle.position.y/16 - (2); yy <= (int)_rectangle.position.y/16 + (2); yy++){
-        for(int xx = (int)_rectangle.position.x/16 - (2); xx <= (int)_rectangle.position.x/16 + (2); xx++){
+    for(int yy = (int)_rectangle.position.y/16 - 1; yy <= (int)_rectangle.position.y/16 + (int)_rectangle.size.y / 16 + 1; yy++){
+        for(int xx = (int)_rectangle.position.x/16 - 1; xx <= (int)_rectangle.position.x/16 + (int)_rectangle.size.x / 16 + 1; xx++){
             TilesetData data = GetTilesetData(_tileset);
 
             int tile_id = tilemap_collision_data[xx+yy*number_of_columns] - data.tileset_start_id + 1;
