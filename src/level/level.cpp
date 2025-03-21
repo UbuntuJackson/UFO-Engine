@@ -531,7 +531,6 @@ void Level::Update(){
     if(should_resort_after_z_index){
         std::sort(actors.begin(), actors.end(), actor_sorting_method);
         should_resort_after_z_index = false;
-        Console::Out("[!] [Level::Update] Resorted after z_index");
     }
 
     //To do: Make a call here that readds all contents of new_actor_queue to queued_for_purge
