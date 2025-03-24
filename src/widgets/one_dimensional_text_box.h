@@ -69,13 +69,13 @@ public:
         return false;
     }
 
-    void OnWidgetDraw(){
+    /*void OnWidgetDraw(){
         rectangle.position = GetGlobalPosition();
 
         DrawingSystem::DrawFilled(rectangle, olc::Pixel(0,100,100,240));
 
         DrawingSystem::DrawString(GetGlobalPosition()+Vector2f(3.0f,3.0f), text, colour, scale);
-    }
+    }*/
 
 };
 
