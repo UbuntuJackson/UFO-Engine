@@ -18,8 +18,5 @@ void Profile::Save(){
 void Profile::Load(){
 
     save_file = JsonVariant::Read(file_path_and_name);
-
-    Engine::Get().GoToLevel(save_file.Get("level_path").AsString());
-    Engine::Get().queued_levels.back()->spawn_mode = SpawnMode::SAVEFILE;
     
 }

@@ -1,5 +1,6 @@
 #include <memory>
 #include "ufo_engine.h"
+#include "../file/file.h"
 #include "../keyboard/single_keyboard.h"
 #include "../mouse/mouse.h"
 #include "../json/json.h"
@@ -79,7 +80,13 @@ Engine::Start(){
         res_height = 800;
     }
 
-    NewProfile("Default", "../UFO-Engine/res/engine/default_profile.json");
+    std::string default_profile_path = "../default_profile.json";
+
+    if(!File::Exists(default_profile_path)){
+        JsonDictionary().Write(default_profile_path);
+    }
+
+    NewProfile("default", default_profile_path);
     
     if(pixel_game_engine.Construct(res_width,res_height,pixel_width,pixel_height,false,vsync,true)){
         pixel_game_engine.engine = this;
