@@ -110,6 +110,12 @@ Engine::OnUpdate(float _delta_time){
     engine_up_time += delta_time;
     pixel_game_engine.Clear(background_colour);
     pixel_game_engine.SetPixelMode(olc::Pixel::NORMAL);
+    
+    Mouse::Get().Update();
+    current_level->Update();
+    current_level->Draw();
+    if(all_shapes_visible) current_level->DebugDraw();
+    
     if(queued_levels.size() > 0){
         std::unique_ptr<Level> former_level = std::move(current_level);
         for(auto [k,v] : former_level->level_decals){
@@ -126,10 +132,7 @@ Engine::OnUpdate(float _delta_time){
         former_level->OnExit();
         queued_levels.pop_back();
     }
-    current_level->Update();
-    current_level->Draw();
-    if(all_shapes_visible) current_level->DebugDraw();
-    Mouse::Get().Update();
+    
     //if(SingleKeyboard::Get().GetKey(olc::F1).is_pressed) pixel_game_engine.ConsoleShow(olc::F1);
     return !quit;
 }
