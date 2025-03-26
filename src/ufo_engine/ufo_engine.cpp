@@ -131,12 +131,12 @@ Engine::OnUpdate(float _delta_time){
     
     Mouse::Get().Update();
     current_level->Update();
-    current_level->Draw();
-    
-    if(former_level.get()) former_level->OnExit();    
+    current_level->Draw();    
 
     if(all_shapes_visible) current_level->DebugDraw();
     
+    if(former_level.get()) former_level->OnExit();
+
     //if(SingleKeyboard::Get().GetKey(olc::F1).is_pressed) pixel_game_engine.ConsoleShow(olc::F1);
     return !quit;
 }
