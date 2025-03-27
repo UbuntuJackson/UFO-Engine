@@ -88,6 +88,16 @@ WrappedText Widget::GetWrappedTextWrapOnCharMeetsBorder(std::string _text){
     return {new_text, number_of_rows};
 }
 
+WrappedText Widget::GetWrappedText(std::string _text){
+    if(text_wrapping_mode == TextWrappingModes::CHAR_MEETS_BORDER){
+        return GetWrappedTextWrapOnCharMeetsBorder(_text);
+    }
+    if(text_wrapping_mode == TextWrappingModes::WORD_MEETS_BORDER){
+        return GetWrappedTextWrapOnSpace(_text);
+    }
+    return WrappedText{_text,1};
+}
+
 void Widget::OnUpdate(){
     Actor::OnUpdate();
     

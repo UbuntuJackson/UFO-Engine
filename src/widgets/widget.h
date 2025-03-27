@@ -32,6 +32,9 @@ public:
         WORD_MEETS_BORDER
     };
 
+    int text_wrapping_mode = Widget::TextWrappingModes::CHAR_MEETS_BORDER;
+    bool adjust_height_after_text_rows = false;
+
     bool visible = true;
 //protected:
     ufo::Rectangle rectangle;
@@ -72,6 +75,8 @@ public:
     //Wraps the word so that the characters that would otherwise go outside of the widget
     //end up on the next row.
     WrappedText GetWrappedTextWrapOnCharMeetsBorder(std::string _text);
+
+    WrappedText GetWrappedText(std::string _text);
 
     void OnUpdate();
 

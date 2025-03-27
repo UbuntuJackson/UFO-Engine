@@ -17,7 +17,10 @@ on_create{_on_create},
 on_clicked{_on_clicked},
 text{_text}
 {
-    rectangle.size.y = GetWrappedTextWrapOnSpace(text).rows * 8.0f +6.0f;
+    if(adjust_height_after_text_rows){
+        float height_of_text_chunk = GetWrappedText(text).rows * 8.0f +6.0f;
+        if(height_of_text_chunk > GetRectangle().size.y) rectangle.size.y = height_of_text_chunk;
+    }
     
     Engine::Get().current_level->widget_handles.push_back(this);
 }
