@@ -29,7 +29,7 @@ public:
 
     }
 
-    void OnLevelEnter(Level* _level){
+    void OnSetup(Level* _level){
 
         for(const auto& child : new_children_queue){
             Button* b = dynamic_cast<Button*>(child.get());

@@ -102,6 +102,9 @@ public:
     //the Editor.
     virtual void OnStart(Level* _level);
 
+    //Used only by components in secret to abstract some processes
+    virtual void OnSetup(Level* _level);
+
     //Is called when the level transitions into another level.
     virtual void OnTransition(Level* _level);
 

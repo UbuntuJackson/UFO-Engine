@@ -66,6 +66,7 @@ void Actor::OnLevelEnter(Level* _level){
 void Actor::LevelEnter(Level* _level){
     in_level_tree = true;
     OnLevelEnter(_level);
+    OnSetup(_level);
     _level->should_resort_after_z_index = true;
 
     for(const auto& child : children){
@@ -74,6 +75,10 @@ void Actor::LevelEnter(Level* _level){
 }
 
 void Actor::OnStart(Level* _level){
+
+}
+
+void Actor::OnSetup(Level* _level){
 
 }
 
