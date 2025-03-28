@@ -38,6 +38,8 @@ public:
 
         Refresh();
 
+        original_position = local_position;
+
     }
 
     void OnStart(Level* _level){
