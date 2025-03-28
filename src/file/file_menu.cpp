@@ -55,7 +55,7 @@ void FileMenu::SetDirectory(std::string _path){
             Console::Out("is file");
 
             std::string file_name = s_path.substr(s_path.find_last_of("/")+1);
-            auto b = std::make_unique<FileMenuButton>(Vector2f(0.0f, 0.0f),Vector2f(250.0f, 150.0f),file_name, directory_entry.path().string());
+            auto b = std::make_unique<FileMenuButton>(Vector2f(0.0f, 0.0f),Vector2f(250.0f, 20.0f),file_name, directory_entry.path().string());
             b->background_colour = olc::Pixel(100,100,100);
             
             b->on_pressed = [&](Widget* _w, Button* _button){

@@ -98,12 +98,12 @@ public:
     virtual void OnLevelEnter(Level* _level);
     virtual void LevelEnter(Level* _level);
 
+    //Used only by components in secret to abstract some processes
+    virtual void OnSetup(Level* _level);
+
     //OnStart is like a cousin to OnlevelEnter. It's called when everything is already loaded from
     //the Editor.
     virtual void OnStart(Level* _level);
-
-    //Used only by components in secret to abstract some processes
-    virtual void OnSetup(Level* _level);
 
     //Is called when the level transitions into another level.
     virtual void OnTransition(Level* _level);
