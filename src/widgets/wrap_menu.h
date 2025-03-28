@@ -97,11 +97,14 @@ public:
         }
     }
 
-    virtual void Refresh(){
+    void Refresh(){
         float total_height = 0.0f;
 
         for(const auto& button : buttons){
             button->Refresh();
+        }
+
+        for(const auto& button : buttons){
             button->local_position.y = total_height;
             total_height+=button->rectangle.size.y;
             total_height+=spacing;
