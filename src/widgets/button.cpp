@@ -21,6 +21,13 @@ text{_text}
     Engine::Get().current_level->widget_handles.push_back(this);
 }
 
+void Button::OnStart(Level* _level){
+    if(adjust_height_after_text_rows){
+        float height_of_text_chunk = GetWrappedText(text).rows * 8.0f +12.0f;
+        if(height_of_text_chunk > GetRectangle().size.y) rectangle.size.y = height_of_text_chunk;
+    }
+}
+
 void Button::OnUpdate(){
     Widget::OnUpdate();
     if(adjust_height_after_text_rows){

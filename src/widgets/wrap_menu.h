@@ -40,6 +40,10 @@ public:
 
     }
 
+    void OnStart(Level* _level){
+        RefreshContents();
+    }
+
     void ControlWithKeys(bool _up, bool _down, bool _select){
 
         if(_up){
@@ -91,8 +95,7 @@ public:
         }
     }
 
-    void OnUpdate(){
-        //Adjusting size and positioning of buttons
+    void RefreshContents(){
         float total_height = 0.0f;
 
         for(const auto& button : buttons){
@@ -103,6 +106,11 @@ public:
 
         rectangle.size.y = total_height;
         rectangle.size.x = 0.0f;
+    }
+
+    void OnUpdate(){
+        //Adjusting size and positioning of buttons
+        RefreshContents();
 
         //Selection logic
         for(auto&& button : buttons){
