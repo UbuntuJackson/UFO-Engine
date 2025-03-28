@@ -38,8 +38,6 @@ public:
 
         Refresh();
 
-        original_position = local_position;
-
     }
 
     void OnStart(Level* _level){
@@ -52,22 +50,9 @@ public:
             selected_index--;
             selected_index = ufoMaths::Wrapi(selected_index, 0, int(buttons.size()));
 
-            /*if(buttons[selected_index]->GetGlobalPosition().y < 0.0f){
-                local_position.y=buttons[selected_index]->GetGlobalPosition().y;
-            }
-            else{
-                local_position.y-=buttons[selected_index]->GetGlobalPosition().y;
-            }*/
         }
         if(_down){
             selected_index++;
-
-            /*if(buttons[ufoMaths::Wrapi(selected_index, 0, int(buttons.size()))]->GetGlobalPosition().y > Engine::Get().pixel_game_engine.GetWindowSizeInPixles().y){
-                local_position.y-=(buttons[ufoMaths::Wrapi(selected_index, 0, int(buttons.size()))]->rectangle.size.y+spacing);
-            }
-            if(selected_index == buttons.size()){
-                local_position.y = original_position.y;
-            }*/
 
             selected_index = ufoMaths::Wrapi(selected_index, 0, int(buttons.size()));
 
@@ -127,27 +112,12 @@ public:
         //Engine::Get().current_level->QueueForPurge(id);
         if(has_modified_controls) return;
 
-        if(SingleKeyboard::Get().GetKey(olc::UP).is_pressed){
-            selected_index--;
-            selected_index = ufoMaths::Wrapi(selected_index, 0, int(buttons.size()));
-            //Console::Out("WrapMenu::selected_index=",selected_index);
-        }
-        if(SingleKeyboard::Get().GetKey(olc::DOWN).is_pressed){
-            selected_index++;
-
-            if(buttons[ufoMaths::Wrapi(selected_index, 0, int(buttons.size()))]->GetGlobalPosition().y > Engine::Get().pixel_game_engine.GetWindowSizeInPixles().y){
-                local_position.y-=(buttons[ufoMaths::Wrapi(selected_index, 0, int(buttons.size()))]->rectangle.size.y+spacing);
-            }
-            if(selected_index == buttons.size()){
-                local_position.y = original_position.y;
-            }
-
-            selected_index = ufoMaths::Wrapi(selected_index, 0, int(buttons.size()));
-
-        }
-        if(SingleKeyboard::Get().GetKey(olc::ENTER).is_pressed){
-            buttons[selected_index]->on_pressed(this, buttons[selected_index]);
-        }
+        ControlWithKeys(
+            SingleKeyboard::Get().GetKey(olc::UP).is_pressed,
+            SingleKeyboard::Get().GetKey(olc::DOWN).is_pressed, 
+            SingleKeyboard::Get().GetKey(olc::ENTER).is_pressed);
+        
+        ControlWithMouse();
     }
 
     void OnPurge(Level *_level){
