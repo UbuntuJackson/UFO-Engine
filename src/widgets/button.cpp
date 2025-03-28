@@ -21,7 +21,7 @@ text{_text}
     Engine::Get().current_level->widget_handles.push_back(this);
 }
 
-void Button::OnStart(Level* _level){
+void Button::OnLevelEnter(Level* _level){
     Console::Print("Button Onstart Ran\n");
     if(adjust_height_after_text_rows){
         float height_of_text_chunk = GetWrappedText(text).rows * 8.0f +12.0f;
