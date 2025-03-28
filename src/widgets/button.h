@@ -26,7 +26,7 @@ public:
     bool refreshed = false;
     bool needs_to_refresh = false;
     Button(olc::vf2d _local_position, olc::vf2d _size, std::string _text = "", std::string on_create = "", std::string on_clicked = "");
-
+    void OnUpdate();
     bool IsPressed();
     bool IsHeld();
     bool IsReleased();

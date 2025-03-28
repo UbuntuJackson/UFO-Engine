@@ -35,17 +35,6 @@ public:
             Button* b = dynamic_cast<Button*>(child.get());
             if(b != nullptr) buttons.push_back(b);
         }
-    
-        float total_height = 0.0f;
-
-        for(const auto& button : buttons){
-            button->local_position.y = total_height;
-            total_height+=button->rectangle.size.y;
-            total_height+=spacing;
-        }
-
-        rectangle.size.y = total_height;
-        rectangle.size.x = 0.0f;
 
         original_position = local_position;
 
@@ -103,7 +92,19 @@ public:
     }
 
     void OnUpdate(){
+        //Adjusting size and positioning of buttons
+        float total_height = 0.0f;
 
+        for(const auto& button : buttons){
+            button->local_position.y = total_height;
+            total_height+=button->rectangle.size.y;
+            total_height+=spacing;
+        }
+
+        rectangle.size.y = total_height;
+        rectangle.size.x = 0.0f;
+
+        //Selection logic
         for(auto&& button : buttons){
             button->is_selected = false;    
         }
