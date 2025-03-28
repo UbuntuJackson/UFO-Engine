@@ -32,6 +32,14 @@ public:
     void OnAddChild(Actor* _actor){
         Button* b = dynamic_cast<Button*>(_actor);
         if(b != nullptr) buttons.push_back(b);
+
+        Refresh();
+    }
+
+    void OnSetup(Level* _level){
+
+        original_position = local_position;
+
     }
 
     void OnStart(Level* _level){
