@@ -42,10 +42,6 @@ public:
 
     }
 
-    void OnStart(Level* _level){
-        
-    }
-
     void ControlWithKeys(bool _up, bool _down, bool _select){
 
         if(_up){
