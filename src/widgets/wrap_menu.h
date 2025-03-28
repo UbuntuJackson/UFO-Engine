@@ -101,10 +101,10 @@ public:
         float total_height = 0.0f;
 
         for(const auto& button : buttons){
+            button->Refresh();
             button->local_position.y = total_height;
             total_height+=button->rectangle.size.y;
             total_height+=spacing;
-            button->Refresh();
         }
 
         rectangle.size.y = total_height;
