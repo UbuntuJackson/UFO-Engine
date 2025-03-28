@@ -36,7 +36,7 @@ public:
             if(b != nullptr) buttons.push_back(b);
         }
 
-        RefreshContents();
+        Refresh();
 
         original_position = local_position;
 
@@ -97,13 +97,14 @@ public:
         }
     }
 
-    void RefreshContents(){
+    void Refresh(){
         float total_height = 0.0f;
 
         for(const auto& button : buttons){
             button->local_position.y = total_height;
             total_height+=button->rectangle.size.y;
             total_height+=spacing;
+            button->Refresh();
         }
 
         rectangle.size.y = total_height;
@@ -112,7 +113,7 @@ public:
 
     void OnUpdate(){
         //Adjusting size and positioning of buttons
-        RefreshContents();
+        Refresh();
 
         //Selection logic
         for(auto&& button : buttons){
