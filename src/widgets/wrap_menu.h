@@ -29,17 +29,9 @@ public:
 
     }
 
-    void OnSetup(Level* _level){
-
-        for(const auto& child : new_children_queue){
-            Button* b = dynamic_cast<Button*>(child.get());
-            if(b != nullptr) buttons.push_back(b);
-        }
-
-        Refresh();
-
-        original_position = local_position;
-
+    void OnAddChild(Actor* _actor){
+        Button* b = dynamic_cast<Button*>(_actor);
+        if(b != nullptr) buttons.push_back(b);
     }
 
     void OnStart(Level* _level){

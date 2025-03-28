@@ -72,6 +72,9 @@ public:
     //Add a component, in the UFO-Engine it's referred to as 'child'.
     void AddChild(std::unique_ptr<Actor> _actor);
 
+    //Is called when child is added
+    virtual void OnAddChild(Actor* _actor);
+
     //Alias for AddChild, but also returns a handle to the child that was added.
     template <typename tActor, typename ...tArgs>
     tActor* AddChild(tArgs&& ..._args){

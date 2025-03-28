@@ -18,9 +18,14 @@ olc::vf2d Actor::GetGlobalPosition(){
     return local_position + parent->GetGlobalPosition();
 }
 
+void Actor::OnAddChild(Actor* _actor){
+
+}
+
 void Actor::AddChild(std::unique_ptr<Actor> _actor){
     _actor->parent = this;
     if(in_level_tree){
+        OnAddChild(_actor.get());
         _actor->LevelEnter(Engine::Get().current_level.get());
     }
     new_children_queue.push_back(std::move(_actor));
