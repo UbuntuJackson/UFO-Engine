@@ -30,18 +30,20 @@ public:
     }
 
     void OnLevelEnter(Level* _level){
-    
+
         for(const auto& child : new_children_queue){
             Button* b = dynamic_cast<Button*>(child.get());
             if(b != nullptr) buttons.push_back(b);
         }
+
+        RefreshContents();
 
         original_position = local_position;
 
     }
 
     void OnStart(Level* _level){
-        RefreshContents();
+        
     }
 
     void ControlWithKeys(bool _up, bool _down, bool _select){
