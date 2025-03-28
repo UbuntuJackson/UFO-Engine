@@ -97,7 +97,7 @@ public:
         }
     }
 
-    void Refresh(){
+    virtual void Refresh(){
         float total_height = 0.0f;
 
         for(const auto& button : buttons){
