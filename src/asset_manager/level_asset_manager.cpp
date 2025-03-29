@@ -2,12 +2,12 @@
 #include <memory>
 #include "level_asset_manager.h"
 #include "../console/console.h"
-#include <map>
+#include <unordered_map>
 #include "../ufo_engine/ufo_engine.h"
 #include "../shapes/rectangle.h"
 #include "../external/olcSoundWaveEngine.h"
 
-std::map<std::string, std::unique_ptr<olc::Sprite>>& LevelAssetManager::GetSprites(){
+std::unordered_map<std::string, std::unique_ptr<olc::Sprite>>& LevelAssetManager::GetSprites(){
     return sprites;
 }
 
@@ -35,7 +35,7 @@ LevelAssetManager::GetSprite(std::string _name) {
     return sprites.at(_name).get();
 }
 
-std::map<std::string, std::unique_ptr<olc::Decal>>& LevelAssetManager::GetDecals(){
+std::unordered_map<std::string, std::unique_ptr<olc::Decal>>& LevelAssetManager::GetDecals(){
     return decals;
 }
 
