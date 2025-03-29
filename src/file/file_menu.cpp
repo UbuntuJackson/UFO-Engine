@@ -89,24 +89,7 @@ void FileMenu::SetDirectory(std::string _path){
     func_on_file_menu_created(this);
     OnFileMenuCreated();
 
-    for(const auto& child : new_children_queue){
-        Button* b = dynamic_cast<Button*>(child.get());
-        if(b != nullptr) buttons.push_back(b);
-        Console::Out("Button Added");
-    }
-
-    float total_height = 0.0f;
-
-    for(const auto& button : buttons){
-        button->local_position.y = total_height;
-        total_height+=button->rectangle.size.y;
-        total_height+=spacing;
-    }
-
-    rectangle.size.y = total_height;
-    rectangle.size.x = 0.0f;
-
-    original_position = local_position;
+    
 
     for(auto button : buttons){
         button->theme = OnSetButtonTheme();
