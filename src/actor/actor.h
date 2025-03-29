@@ -3,13 +3,13 @@
 
 #include <memory>
 #include <vector>
-#include "../json/json_variant.h"
 #include "../external/olcPixelGameEngine.h"
 #include "../shapes/rectangle.h"
 
 //To avoid circular dependancies between level.h and actor.h.
 class Camera;
 class Level;
+class JsonVariant;
 
 //What is an Actor? There are three definitions:
 //1.) An Actor is an object that inhibits in a level.

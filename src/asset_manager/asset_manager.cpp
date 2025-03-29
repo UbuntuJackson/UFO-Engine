@@ -6,7 +6,7 @@
 #include "../ufo_engine/ufo_engine.h"
 #include "../external/olcSoundWaveEngine.h"
 
-std::map<std::string, std::unique_ptr<olc::Sprite>>& AssetManager::GetSprites(){
+std::unordered_map<std::string, std::unique_ptr<olc::Sprite>>& AssetManager::GetSprites(){
     return sprites;
 }
 
@@ -34,7 +34,7 @@ AssetManager::GetSprite(std::string _name) {
     return sprites.at(_name).get();
 }
 
-std::map<std::string, std::unique_ptr<olc::Decal>>& AssetManager::GetDecals(){
+std::unordered_map<std::string, std::unique_ptr<olc::Decal>>& AssetManager::GetDecals(){
     return decals;
 }
 
