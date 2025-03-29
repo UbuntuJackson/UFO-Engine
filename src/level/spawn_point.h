@@ -4,7 +4,7 @@
 #include <memory>
 #include "../actor/actor.h"
 #include "../external/olcPixelGameEngine.h"
-#include "../json/json.h"
+#include "../json/json_variant.h"
 
 class SpawnPoint : public Actor{
 public:

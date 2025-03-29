@@ -1,7 +1,7 @@
 #include <string>
 #include "../external/olcPixelGameEngine.h"
 #include "spawn_point.h"
-#include "../json/json.h"
+#include "../json/json_variant.h"
 #include "../ufo_engine/ufo_engine.h"
 #include "level_trigger.h"
 
