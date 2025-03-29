@@ -63,7 +63,7 @@ public:
             
         }
 
-        if(buttons[selected_index]->GetGlobalPosition().y < 0.0f - spacing){
+        if(buttons[selected_index]->GetGlobalPosition().y - spacing < 0.0f){
             Console::PrintLine("Button was on line", buttons[selected_index]->GetGlobalPosition().y);
             local_position.y += (buttons[selected_index]->GetRectangle().size.y - spacing);
         }
