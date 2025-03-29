@@ -22,7 +22,7 @@ public:
     olc::Sprite* GetSprite(std::string _name);
     std::map<std::string, std::unique_ptr<olc::Decal>>& GetDecals();
     void LoadDecal(const std::string& _path, const std::string& _name); //wouldn't this load both a sprite and a decal? And should the load functions return something?
-    olc::Decal* GetDecal(std::string _name);
+    olc::Decal* GetDecal(const std::string& _name);
     void RemoveAsset(std::string _name);
 
     void PlayAudio(std::string _name, bool _looping);

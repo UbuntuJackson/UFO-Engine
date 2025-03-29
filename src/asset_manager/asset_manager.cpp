@@ -62,7 +62,7 @@ void AssetManager::LoadDecal(const std::string& _path, const std::string& _name)
 }
 
 olc::Decal*
-AssetManager::GetDecal(std::string _name) {
+AssetManager::GetDecal(const std::string& _name) {
     if(!decals.count(_name)) Console::Out("Decal with key: " + _name + " does not exist");
     return decals.at(_name).get();
 }
