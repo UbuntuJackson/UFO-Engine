@@ -39,4 +39,7 @@ public:
 
     virtual void OnFileOpen(FileMenuButton* _button,std::string _file_extension);
 
+private:
+    Level* level = nullptr;
+
 };
