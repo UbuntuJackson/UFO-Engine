@@ -44,8 +44,6 @@ public:
     //All widgets has a default theme. They will have additional themes after need.
     std::unique_ptr<Theme> theme = std::make_unique<ColourRectangleTheme>(Graphics::DARK_CYAN);
 
-    Level* level = nullptr;
-
     Widget(Vector2f _local_position, Vector2f _size);
 
     void OnLevelEnter(Level* _level);
