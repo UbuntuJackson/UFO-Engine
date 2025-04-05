@@ -37,7 +37,7 @@ public:
     }
 
     void OnSetup(Level* _level){
-
+        Refresh();
     }
 
     void ControlWithKeys(bool _up, bool _down, bool _select){
