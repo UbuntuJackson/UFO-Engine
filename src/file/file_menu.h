@@ -33,7 +33,7 @@ public:
     virtual std::unique_ptr<Theme> OnSetButtonHoveredTheme();
     virtual std::unique_ptr<Theme> OnSetButtonHeldTheme();
 
-    void OnLevelEnter(Level* _level);
+    void OnSetup(Level* _level);
 
     virtual void OnFileMenuCreated();
 

@@ -116,7 +116,7 @@ std::unique_ptr<Theme> FileMenu::OnSetButtonHeldTheme(){
     return std::make_unique<ColourRectangleTheme>(Graphics::VERY_DARK_CYAN);
 }
 
-void FileMenu::OnLevelEnter(Level* _level){
+void FileMenu::OnSetup(Level* _level){
     
     level = _level;
     
