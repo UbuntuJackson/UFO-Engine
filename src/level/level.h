@@ -150,7 +150,7 @@ public:
 
     Camera* GetActiveCamera();
     void ControlActiveCameraWithMouse(bool _condition_move, bool _condition_zoom);
-    void ControlActiveCameraWithKeyboard(bool _right, bool _left,bool _up, bool _down);
+    void ControlActiveCameraWithKeyboard(bool _right, bool _left,bool _up, bool _down, float _scrolling_speed = 1.0f);
     virtual void OnCameraManipulation();
 
     void Update();

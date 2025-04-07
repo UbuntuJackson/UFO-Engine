@@ -457,11 +457,11 @@ void Level::ControlActiveCameraWithMouse(bool _condition_move, bool _condition_z
 
 }
 
-void Level::ControlActiveCameraWithKeyboard(bool _right, bool _left,bool _up, bool _down){
+void Level::ControlActiveCameraWithKeyboard(bool _right, bool _left,bool _up, bool _down, float _scrolling_speed){
     int camera_movement_horizontal = int(_right) - int(_left);
     int camera_movement_vertical = int(_down) - int(_up);
-    GetActiveCamera()->local_position.x += camera_movement_horizontal / GetActiveCamera()->scale;
-    GetActiveCamera()->local_position.y += camera_movement_vertical / GetActiveCamera()->scale;
+    GetActiveCamera()->local_position.x += Engine::Get().GetDeltaTime()* (float)camera_movement_horizontal * _scrolling_speed / GetActiveCamera()->scale;
+    GetActiveCamera()->local_position.y += Engine::Get().GetDeltaTime()* (float)camera_movement_vertical * _scrolling_speed / GetActiveCamera()->scale;
 }
 
 void Level::OnCameraManipulation(){
