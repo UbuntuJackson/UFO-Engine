@@ -149,7 +149,8 @@ public:
     void InitializeEditMode();
 
     Camera* GetActiveCamera();
-    void ActiveCameraLookAround(bool _condition_move, bool _condition_zoom);
+    void ControlActiveCameraWithMouse(bool _condition_move, bool _condition_zoom);
+    void ControlActiveCameraWithKeyboard(bool _right, bool _left,bool _up, bool _down);
     virtual void OnCameraManipulation();
 
     void Update();

@@ -444,7 +444,7 @@ Camera* Level::GetActiveCamera(){
     return camera_handles.back();
 }
 
-void Level::ActiveCameraLookAround(bool _condition_move, bool _condition_zoom){
+void Level::ControlActiveCameraWithMouse(bool _condition_move, bool _condition_zoom){
     
     if(_condition_move){
         GetActiveCamera()->local_position-=Mouse::GetDeltaPosition()/GetActiveCamera()->scale;
@@ -457,8 +457,15 @@ void Level::ActiveCameraLookAround(bool _condition_move, bool _condition_zoom){
 
 }
 
+void Level::ControlActiveCameraWithKeyboard(bool _right, bool _left,bool _up, bool _down){
+    int camera_movement_horizontal = int(_right) - int(_left);
+    int camera_movement_vertical = int(_down) - int(_up);
+    GetActiveCamera()->local_position.x += camera_movement_horizontal / GetActiveCamera()->scale;
+    GetActiveCamera()->local_position.y += camera_movement_vertical / GetActiveCamera()->scale;
+}
+
 void Level::OnCameraManipulation(){
-    ActiveCameraLookAround(Mouse::GetMiddleButton().is_held, true);
+    ControlActiveCameraWithMouse(Mouse::GetMiddleButton().is_held, true);
 }
 
 void Level::Update(){
