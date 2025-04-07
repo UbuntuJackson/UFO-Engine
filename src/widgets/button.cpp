@@ -26,6 +26,10 @@ void Button::OnLevelEnter(Level* _level){
     Refresh();
 }
 
+void Button::OnSetup(Level* _level){
+    Refresh();
+}
+
 void Button::Refresh(){
     if(adjust_height_after_text_rows){
         float height_of_text_chunk = GetWrappedText(text).rows * 8.0f +12.0f;
