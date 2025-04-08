@@ -22,14 +22,9 @@ public:
     void OnWidgetDraw(){
         if(!visible) return;
         theme->OnDraw(this);
-        if(text_wrapping_mode == Widget::TextWrappingModes::CHAR_MEETS_BORDER){
-            WrappedText wrapped_text = GetWrappedTextWrapOnCharMeetsBorder(text);
-            Graphics::Get().DrawString(GetGlobalPosition(), wrapped_text.text, colour, scale);
-        }
-        else{
-            WrappedText wrapped_text = GetWrappedTextWrapOnSpace(text);
-            Graphics::Get().DrawString(GetGlobalPosition(), wrapped_text.text, colour, scale);
-        }
+        
+        Graphics::Get().DrawString(GetGlobalPosition(), GetWrappedText(text).text, colour, scale);
+        
     }
 };
 
