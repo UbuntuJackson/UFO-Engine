@@ -33,15 +33,11 @@ WrappedText Widget::GetWrappedTextWrapOnSpace(std::string _text){
 
     for(int c = 0; c < _text.size(); c++){
         
-        if(_text[c] != ' ' && _text[c] != '\n') word += _text[c];
+        if(_text[c] != ' ') word += _text[c];
 
         if(c == _text.size()-1 || _text[c] == ' ' || _text[c] == '\n'){
             text_as_vector.push_back(word);
             word = "";
-        }
-
-        if(_text[c] == '\n'){
-            text_as_vector.push_back("\n");
         }
     }
 
@@ -53,14 +49,16 @@ WrappedText Widget::GetWrappedTextWrapOnSpace(std::string _text){
 
     for(int i_word = 0; i_word < text_as_vector.size(); i_word++){
         
-        for(int c = 0; c < text_as_vector[i_word].size(); c++){
-            if(text_as_vector[i_word][c] == '\n'){
-                number_of_rows++;
+        if(text_as_vector[i_word][text_as_vector[i_word].size()-1] != '\n'){
+            if(row.size()+text_as_vector[i_word].size() < int(rectangle.size.x/text_width)){
+                row+=text_as_vector[i_word]+" ";
             }
-        }
-
-        if(row.size()+text_as_vector[i_word].size() < int(rectangle.size.x/text_width)){
-            row+=text_as_vector[i_word]+" ";
+            else{
+                number_of_rows++;
+                new_text+=(row+"\n");
+                row = "";
+                row+=text_as_vector[i_word]+" ";
+            }
         }
         else{
             number_of_rows++;
