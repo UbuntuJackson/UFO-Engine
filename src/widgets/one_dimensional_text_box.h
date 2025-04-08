@@ -63,7 +63,7 @@ public:
         if(past_texts_queue.size() > 0){
             text_queue.push_back(past_texts_queue.back());
             past_texts_queue.pop_back();
-            text = GetWrappedText(text_queue.back()).text;
+            text = text_queue.back();
             return true;
         }
         return false;
