@@ -44,7 +44,7 @@ void Button::OnUpdate(){
 
 void Button::OnPaused(){
     Widget::OnPaused();
-    Console::PrintLine("Button::OnPaused",GetRectangle().size.y,adjust_height_after_text_rows);
+    Console::PrintLine("Button::OnPaused",GetWrappedText(text).rows);
     Refresh();
 }
 
