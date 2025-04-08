@@ -32,7 +32,7 @@ public:
         WORD_MEETS_BORDER
     };
 
-    int text_wrapping_mode = Widget::TextWrappingModes::CHAR_MEETS_BORDER;
+    int text_wrapping_mode = Widget::TextWrappingModes::WORD_MEETS_BORDER;
     bool adjust_height_after_text_rows = false;
 
     bool visible = true;
