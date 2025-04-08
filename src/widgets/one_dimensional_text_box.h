@@ -38,7 +38,7 @@ public:
         if(text_queue.size() == 0) return;
 
         if(text_queue.size() > 0){
-            text = GetWrappedTextWrapOnSpace(text_queue.back()).text;
+            text = GetWrappedText(text_queue.back()).text;
             past_texts_queue.push_back(text_queue.back());
             text_queue.pop_back();
         }
@@ -49,7 +49,7 @@ public:
         Console::Out(text_queue);
 
         if(text_queue.size() > 0){
-            text = GetWrappedTextWrapOnSpace(text_queue.back()).text;
+            text = GetWrappedText(text_queue.back()).text;
             past_texts_queue.push_back(text_queue.back());
             text_queue.pop_back();
             return true;
