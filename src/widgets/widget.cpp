@@ -41,11 +41,11 @@ WrappedText Widget::GetWrappedTextWrapOnSpace(std::string _text){
         }
     }
 
-    Console::PrintLine("GetWrappedTextWrapOnSpace:");
+    /*Console::PrintLine("GetWrappedTextWrapOnSpace:");
     for(const auto str : text_as_vector){
         Console::Print(str,",");
     }
-    Console::Print("\n");
+    Console::Print("\n");*/
 
     std::string new_text = "";
 
@@ -63,14 +63,14 @@ WrappedText Widget::GetWrappedTextWrapOnSpace(std::string _text){
             else{
                 number_of_rows++;
                 row+=text_as_vector[i_word];
-                Console::PrintLine("if Row:",row, "comparison:", row.size()+text_as_vector[i_word].size(), int(rectangle.size.x/text_width));
+                //Console::PrintLine("if Row:",row, "comparison:", row.size()+text_as_vector[i_word].size(), int(rectangle.size.x/text_width));
                 new_text+=row;
                 row = "";
             }
         }
         else{
             number_of_rows++;
-            Console::PrintLine("else Row:",row);
+            //Console::PrintLine("else Row:",row);
             //Add all previous text to the row
             new_text+=(row+"\n");
             row = "";
@@ -79,7 +79,7 @@ WrappedText Widget::GetWrappedTextWrapOnSpace(std::string _text){
             if(text_as_vector[i_word][text_as_vector[i_word].size()-1] == '\n'){
                 number_of_rows++;
                 
-                Console::PrintLine("else if Row:",row, "comparison:", row.size()+text_as_vector[i_word].size(), int(rectangle.size.x/text_width));
+                //Console::PrintLine("else if Row:",row, "comparison:", row.size()+text_as_vector[i_word].size(), int(rectangle.size.x/text_width));
                 new_text+=row;
                 row = "";
             }
