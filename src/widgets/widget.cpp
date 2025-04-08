@@ -41,7 +41,8 @@ WrappedText Widget::GetWrappedTextWrapOnSpace(std::string _text){
         }
     }
 
-    Console::PrintLine("GetWrappedTextWrapOnSpace:",text_as_vector);
+    Console::PrintLine("GetWrappedTextWrapOnSpace:");
+    Console::PrintLine(text_as_vector);
 
     std::string new_text = "";
 
