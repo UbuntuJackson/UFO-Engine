@@ -62,7 +62,7 @@ WrappedText Widget::GetWrappedTextWrapOnSpace(std::string _text){
         }
         else{
             number_of_rows++;
-            new_text+=(row+"\n");
+            new_text+=row;
             row = "";
             row+=text_as_vector[i_word]+" ";
         }
