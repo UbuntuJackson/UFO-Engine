@@ -31,6 +31,7 @@ public:
     void OnSetup(Level* _level);
     void Refresh();
     void OnUpdate();
+    void OnPaused();
     bool IsPressed();
     bool IsHeld();
     bool IsReleased();

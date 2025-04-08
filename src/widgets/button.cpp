@@ -42,6 +42,11 @@ void Button::OnUpdate(){
     Refresh();
 }
 
+void Button::OnPaused(){
+    Widget::OnPaused();
+    Refresh();
+}
+
 bool Button::IsPressed(){
     if(!IsHovered()) return false;
     if(Mouse::GetLeftButton().is_pressed) return true;
