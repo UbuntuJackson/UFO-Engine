@@ -63,12 +63,14 @@ WrappedText Widget::GetWrappedTextWrapOnSpace(std::string _text){
             else{
                 number_of_rows++;
                 row+=text_as_vector[i_word];
+                Console::PrintLine("if Row:",row);
                 new_text+=row;
                 row = "";
             }
         }
         else{
             number_of_rows++;
+            Console::PrintLine("else Row:",row);
             //Add all previous text to the row
             new_text+=(row+"\n");
             row = "";
