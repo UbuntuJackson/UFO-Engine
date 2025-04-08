@@ -33,11 +33,15 @@ WrappedText Widget::GetWrappedTextWrapOnSpace(std::string _text){
 
     for(int c = 0; c < _text.size(); c++){
         
-        if(_text[c] != ' ') word += _text[c];
+        if(_text[c] != ' ' && _text[c] != '\n') word += _text[c];
 
         if(c == _text.size()-1 || _text[c] == ' ' || _text[c] == '\n'){
             text_as_vector.push_back(word);
             word = "";
+        }
+
+        if(_text[c] == '\n'){
+            text_as_vector.push_back("\n");
         }
     }
 
