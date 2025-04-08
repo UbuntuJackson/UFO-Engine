@@ -37,11 +37,14 @@ public:
     bool IsReleased();
     bool IsHovered();
 
+    float font_height = 8.0f;
+
     std::unique_ptr<Theme> hovered_theme = std::make_unique<ColourRectangleTheme>(olc::CYAN);
     std::unique_ptr<Theme> held_theme = std::make_unique<ColourRectangleTheme>(olc::VERY_DARK_CYAN);
 
     void OnWidgetDraw();
 
+    //Unused
     static std::unique_ptr<Button> Load(Json* _json);
 };
 

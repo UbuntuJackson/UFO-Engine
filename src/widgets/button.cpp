@@ -32,7 +32,7 @@ void Button::OnSetup(Level* _level){
 
 void Button::Refresh(){
     if(adjust_height_after_text_rows){
-        float height_of_text_chunk = GetWrappedText(text).rows * 8.0f +12.0f;
+        float height_of_text_chunk = GetWrappedText(text).rows * font_height;
         if(height_of_text_chunk > GetRectangle().size.y) rectangle.size.y = height_of_text_chunk;
     }
 }
@@ -44,7 +44,6 @@ void Button::OnUpdate(){
 
 void Button::OnPaused(){
     Widget::OnPaused();
-    Console::PrintLine("Button::OnPaused", GetWrappedText(text).text, GetWrappedText(text).rows);
     Refresh();
 }
 
@@ -73,7 +72,7 @@ void Button::OnWidgetDraw(){
     if(!IsHovered() && !IsHeld()) theme->OnDraw(this);
     if((IsHovered() && !IsHeld()) || is_selected) hovered_theme->OnDraw(this);
     if(IsHeld()) held_theme->OnDraw(this);
-    Graphics::Get().DrawString(GetGlobalPosition() + Vector2f(3.0f,3.0f), GetWrappedText(text).text, text_colour, {1.0f,1.0f});
+    Graphics::Get().DrawString(GetGlobalPosition(), GetWrappedText(text).text, text_colour, {1.0f,1.0f});
     
 }
 
