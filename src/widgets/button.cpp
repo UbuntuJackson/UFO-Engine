@@ -73,7 +73,7 @@ void Button::OnWidgetDraw(){
     if(!IsHovered() && !IsHeld()) theme->OnDraw(this);
     if((IsHovered() && !IsHeld()) || is_selected) hovered_theme->OnDraw(this);
     if(IsHeld()) held_theme->OnDraw(this);
-    Graphics::Get().DrawString(GetGlobalPosition() + Vector2f(3.0f,3.0f), GetWrappedTextWrapOnSpace(text).text, text_colour, {1.0f,1.0f});
+    Graphics::Get().DrawString(GetGlobalPosition() + Vector2f(3.0f,3.0f), GetWrappedText(text).text, text_colour, {1.0f,1.0f});
     
 }
 
