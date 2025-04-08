@@ -122,6 +122,8 @@ public:
     //Almost like OnUpdate, but you can call it whenever you want.
     virtual void HandleUpdate();
 
+    void Paused();
+
     //Actor has a built-in paused state. This will run in place of OnUpdate if
     //Level::paused == true.
     virtual void OnPaused();

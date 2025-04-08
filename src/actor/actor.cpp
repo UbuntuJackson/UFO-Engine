@@ -120,6 +120,13 @@ void Actor::OnUpdate(){
 
 void Actor::HandleUpdate(){}
 
+void Actor::Paused(){
+    for(const auto& child : children){
+        child->Paused();
+    }
+    
+    OnPaused();
+}
 void Actor::OnPaused(){}
 
 void Actor::SearchForDeadActors(int _id){

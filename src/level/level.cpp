@@ -496,7 +496,7 @@ void Level::Update(){
     }
     else{
         for(const auto& actor : actors){
-            actor->OnPaused();
+            actor->Paused();
         }
     }
 
