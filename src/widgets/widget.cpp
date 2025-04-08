@@ -52,7 +52,7 @@ WrappedText Widget::GetWrappedTextWrapOnSpace(std::string _text){
 
         if(row.size()+text_as_vector[i_word].size() < int(rectangle.size.x/text_width)){
             if(text_as_vector[i_word][text_as_vector[i_word].size()-1] != '\n'){
-                row+=text_as_vector[i_word]+" ";
+                row+=text_as_vector[i_word];
             }
             else{
                 number_of_rows++;
@@ -66,7 +66,7 @@ WrappedText Widget::GetWrappedTextWrapOnSpace(std::string _text){
             //Add all previous text to the row
             new_text+=(row+"\n");
             row = "";
-            row+=text_as_vector[i_word]+" ";
+            row+=text_as_vector[i_word];
         }
     }
     new_text+=row;
