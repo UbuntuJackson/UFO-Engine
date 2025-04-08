@@ -43,7 +43,7 @@ WrappedText Widget::GetWrappedTextWrapOnSpace(std::string _text){
 
     Console::PrintLine("GetWrappedTextWrapOnSpace:");
     for(const auto str : text_as_vector){
-        Console::Print(str," ,");
+        Console::Print(str,",");
     }
     Console::Print("\n");
 
