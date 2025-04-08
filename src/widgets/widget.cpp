@@ -63,7 +63,7 @@ WrappedText Widget::GetWrappedTextWrapOnSpace(std::string _text){
             else{
                 number_of_rows++;
                 row+=text_as_vector[i_word];
-                Console::PrintLine("if Row:",row);
+                Console::PrintLine("if Row:",row, "comparison:", row.size()+text_as_vector[i_word].size(), int(rectangle.size.x/text_width));
                 new_text+=row;
                 row = "";
             }
