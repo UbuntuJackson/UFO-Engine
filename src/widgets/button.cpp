@@ -44,7 +44,7 @@ void Button::OnUpdate(){
 
 void Button::OnPaused(){
     Widget::OnPaused();
-    Console::PrintLine("Button::OnPaused",GetWrappedText(text).rows);
+    Console::PrintLine("Button::OnPaused", GetWrappedText(text).text, GetWrappedText(text).rows);
     Refresh();
 }
 
