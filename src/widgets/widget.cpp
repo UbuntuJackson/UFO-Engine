@@ -49,23 +49,22 @@ WrappedText Widget::GetWrappedTextWrapOnSpace(std::string _text){
 
     for(int i_word = 0; i_word < text_as_vector.size(); i_word++){
         
-        if(text_as_vector[i_word][text_as_vector[i_word].size()-1] != '\n'){
-            if(row.size()+text_as_vector[i_word].size() < int(rectangle.size.x/text_width)){
-                row+=text_as_vector[i_word]+" ";
-            }
-            else{
-                number_of_rows++;
-                new_text+=(row+"\n");
-                row = "";
-                row+=text_as_vector[i_word]+" ";
-            }
-        }
-        else{
+        if(text_as_vector[i_word][text_as_vector[i_word].size()-1] == '\n'){
             number_of_rows++;
             new_text+=row;
             row = "";
             row+=text_as_vector[i_word];
         }
+        if(row.size()+text_as_vector[i_word].size() < int(rectangle.size.x/text_width)){
+            row+=text_as_vector[i_word]+" ";
+        }
+        else{
+            number_of_rows++;
+            new_text+=(row+"\n");
+            row = "";
+            row+=text_as_vector[i_word]+" ";
+        }
+        
     }
     new_text+=row;
     
