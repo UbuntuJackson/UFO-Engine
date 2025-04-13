@@ -27,6 +27,17 @@ struct WrappedText{
 class Widget : public Actor{
 public:
 
+    std::vector<Widget*> widget_handles;
+
+    void OnPurgeDeadActors(){
+        Engine::Get().current_level->PurgeHandles(widget_handles);
+    }
+
+    void OnAddChild(Actor* _actor){
+        Widget* w = dynamic_cast<Widget*>(_actor);
+        if(w != nullptr) widget_handles.push_back(w);
+    }
+
     enum TextWrappingModes{
         CHAR_MEETS_BORDER,
         WORD_MEETS_BORDER
@@ -77,6 +88,9 @@ public:
     WrappedText GetWrappedText(std::string _text);
 
     void OnUpdate();
+    bool SearchForHoveredWidget();
+    virtual void OnWidgetHovered();
+    virtual void OnActiveUpdate();
 
     void OnWidgetDraw();
 

@@ -131,6 +131,7 @@ public:
     //Used to clean up dead actors and components. This searches the level-tree recursively.
     virtual void SearchForDeadActors(int _id);
     virtual void ReportAsDead(int _id);
+    virtual void OnPurgeDeadActors();
     virtual void PurgeDeadActors();
 
     //New Z-Index. Change the Z-Index, tells the engine to resort std::vector actors which it

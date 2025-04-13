@@ -30,10 +30,16 @@ public:
     }
 
     void OnAddChild(Actor* _actor){
+        Widget::OnAddChild(_actor);
         Button* b = dynamic_cast<Button*>(_actor);
         if(b != nullptr) buttons.push_back(b);
 
         Refresh();
+    }
+
+    void OnPurgeDeadActors(){
+        Widget::OnPurgeDeadActors();
+        Engine::Get().current_level->PurgeHandles(buttons);
     }
 
     void OnSetup(Level* _level){

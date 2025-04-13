@@ -147,7 +147,12 @@ void Actor::ReportAsDead(int _id){
     }
 }
 
+void Actor::OnPurgeDeadActors(){
+    //Engine::Get().current_level->PurgeHandles(...);
+}
+
 void Actor::PurgeDeadActors(){
+    OnPurgeDeadActors();
     for(int i = children.size()-1; i >= 0; i--){
         if(children[i]->dead){
             children.erase(children.begin()+i);

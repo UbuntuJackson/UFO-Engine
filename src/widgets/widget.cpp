@@ -7,6 +7,7 @@
 #include "../drawing_system/drawing_system.h"
 #include "../ufo_maths/ufo_maths.h"
 #include "../level/level.h"
+#include "../mouse/mouse.h"
 
 using namespace ufoMaths;
 
@@ -120,6 +121,26 @@ WrappedText Widget::GetWrappedText(std::string _text){
 
 void Widget::OnUpdate(){
     Actor::OnUpdate();
+    
+}
+
+bool Widget::SearchForHoveredWidget(){
+    for(int index = widget_handles.size()-1; index > 0; index--){
+        bool found_hovered_widget = widget_handles[index]->SearchForHoveredWidget();
+        if(found_hovered_widget) return true;
+    }
+    if(ufoMaths::RectangleVsPoint(GetRectangle(), Mouse::Get().GetPosition())){
+        OnWidgetHovered();
+        return true;
+    }
+    return false;
+}
+
+void Widget::OnWidgetHovered(){
+
+}
+
+void Widget::OnActiveUpdate(){
     
 }
 

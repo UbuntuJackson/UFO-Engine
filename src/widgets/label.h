@@ -15,7 +15,7 @@ public:
     olc::Pixel colour;
     Vector2f scale;
     
-    Label(Vector2f _local_position, Vector2f _size, std::string _text = "Hello World", olc::Pixel _colour = olc::WHITE, Vector2f _scale = {1.0f, 1.0f}) : Widget(_local_position, _size), text{_text}, colour{_colour}, scale{_scale}{
+    Label(Vector2f _local_position, Vector2f _size, std::string _text = "", olc::Pixel _colour = olc::WHITE, Vector2f _scale = {1.0f, 1.0f}) : Widget(_local_position, _size), text{_text}, colour{_colour}, scale{_scale}{
 
     }
 

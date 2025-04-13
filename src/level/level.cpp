@@ -500,6 +500,11 @@ void Level::Update(){
         }
     }
 
+    for(const auto& widget : widget_handles){
+        widget->SearchForHoveredWidget();
+    }
+    if(active_widget) active_widget->OnActiveUpdate();
+
     for(const auto& collision_body : collision_body_handles){
         collision_body->HandleUpdate();
     }
