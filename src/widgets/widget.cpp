@@ -141,7 +141,15 @@ void Widget::OnWidgetHovered(){
 }
 
 void Widget::OnActiveUpdate(){
-    
+
+}
+
+void Widget::OnSetInactive(){
+
+}
+
+void Widget::OnSetActive(){
+
 }
 
 void Widget::OnWidgetDraw(){

@@ -11,13 +11,21 @@ public:
     TextField(Vector2f _local_position, Vector2f _size) : Label(_local_position, _size){
 
     }
+    void OnSetActive(){
+        Engine::Get().pixel_game_engine.TextEntryEnable(true);
+    }
+
     void OnWidgetHovered(){
-        if(ufoMaths::RectangleVsPoint(GetRectangle(), Mouse::Get().GetPosition()) && Mouse::Get().GetLeftButton().is_pressed){
-            Engine::Get().pixel_game_engine.TextEntryEnable(true);
+        if(Mouse::Get().GetLeftButton().is_pressed){
+            Engine::Get().current_level->SetActiveWidget(this);
         }
-        if(!ufoMaths::RectangleVsPoint(GetRectangle(), Mouse::Get().GetPosition()) && Mouse::Get().GetLeftButton().is_pressed){
-            Engine::Get().pixel_game_engine.TextEntryEnable(false);
-        }
+    }
+
+    void OnSetInactive(){
+        Engine::Get().pixel_game_engine.TextEntryEnable(false);
+    }
+
+    void OnActiveUpdate(){
         if(Engine::Get().pixel_game_engine.IsTextEntryEnabled()){
             text = Engine::Get().pixel_game_engine.TextEntryGetString();
         }

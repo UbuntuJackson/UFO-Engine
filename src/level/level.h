@@ -95,7 +95,11 @@ public:
     std::vector<Actor*> savable_actor_handles;
     std::vector<Actor*> transitionable_actor_handles;
 
+private:
     Widget* active_widget = nullptr;
+public:
+    void SetActiveWidget(Widget* _widget);
+    Widget* GetActiveWidget();
     std::vector<Widget*> widget_handles;
 
     std::vector<int> queued_for_purge;

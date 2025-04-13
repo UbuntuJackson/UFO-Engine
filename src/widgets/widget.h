@@ -91,8 +91,16 @@ public:
     bool SearchForHoveredWidget();
     virtual void OnWidgetHovered();
     virtual void OnActiveUpdate();
+    virtual void OnSetInactive();
+    virtual void OnSetActive();
 
     void OnWidgetDraw();
+
+    void OnPurge(Level* _level){
+        if(_level->GetActiveWidget() == this){
+            _level->SetActiveWidget(nullptr);
+        }
+    }
 
 };
 
