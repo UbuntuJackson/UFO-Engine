@@ -16,6 +16,7 @@ public:
     }
 
     void OnWidgetHovered(){
+        Console::PrintLine("TextField::OnWidgetHovered");
         if(Mouse::Get().GetLeftButton().is_pressed){
             Engine::Get().current_level->SetActiveWidget(this);
         }

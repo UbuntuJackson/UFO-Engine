@@ -21,6 +21,7 @@ Widget::Widget(Vector2f _local_position, Vector2f _size) :
 
 void Widget::OnLevelEnter(Level* _level){
     Actor::OnLevelEnter(_level);
+    if(!parent) _level->widget_handles.push_back(this);
 
 }
 
