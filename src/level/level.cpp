@@ -717,7 +717,7 @@ void Level::DebugDraw(){
 }
 
 void Level::SetActiveWidget(Widget* _widget){
-    active_widget->OnSetInactive();
+    if(active_widget) active_widget->OnSetInactive();
     active_widget = _widget;
     active_widget->OnSetActive();
 }
