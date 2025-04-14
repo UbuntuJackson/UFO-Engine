@@ -17,6 +17,9 @@ public:
     TextField* file_name_text_field = nullptr;
     std::vector<FileDialogueButton*> file_dialogue_buttons;
 
+    Button* b_save = nullptr;
+    Button* b_cancel = nullptr;
+
     ScrollBar* scroll_bar = nullptr;
     
     FileDialogue(Vector2f _local_position, Vector2f size, std::string _directory) : Widget(_local_position, size)
@@ -146,6 +149,8 @@ public:
                 file_dialogue_buttons[index]->visible = true;
             }
         }
+
+        if(b_cancel->IsReleased()) QueueForPurge();
 
     }
 };
