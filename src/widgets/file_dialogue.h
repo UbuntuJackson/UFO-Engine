@@ -81,8 +81,9 @@ public:
     void OnLevelEnter(Level* _level){
         Widget::OnLevelEnter(_level);
 
-        file_name_text_field = AddChild<TextField>(Vector2f(0.0f, GetRectangle().size.y),Vector2f(200.0f,20.0f));
+        file_name_text_field = AddChild<TextField>(Vector2f(0.0f, GetRectangle().size.y-20.0f),Vector2f(200.0f,20.0f));
         file_name_text_field->text = "Hello Text Field";
+        SetDirectory(path_stack.back());
     }
 
     void OnWidgetHovered(){
