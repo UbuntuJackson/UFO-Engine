@@ -104,6 +104,7 @@ public:
 
     void OnUpdate(){
         int rows = 0;
+
         float file_x_position = 32.0f;
         for(int index = 0; index < file_dialogue_buttons.size(); index++){
             if(file_x_position > GetRectangle().size.x-32.0f){
@@ -115,12 +116,6 @@ public:
             file_dialogue_buttons[index]->local_position.y = rows*64.0f+32.0f;
 
             file_x_position += 64.0f;
-            
-            if(file_dialogue_buttons[index]->local_position.y > GetRectangle().size.y-32.0f ||
-            file_dialogue_buttons[index]->local_position.y < 32.0f
-            ){
-                file_dialogue_buttons[index]->spr->visible = false;
-            }
 
         }
 
@@ -129,7 +124,21 @@ public:
         if(total_page_height > GetRectangle().size.y){
             Console::PrintLine(total_page_height);
             scroll_bar->visible_portion_percentage = (GetRectangle().size.y - 64.0f) / total_page_height;
+            
             Console::PrintLine("FileDialogue visible_portion_percentage",(GetRectangle().size.y) / total_page_height);
+        }
+
+        for(int index = 0; index < file_dialogue_buttons.size(); index++){
+            file_dialogue_buttons[index]->local_position.y -= total_page_height*scroll_bar->scroll_percentage;
+
+            if(file_dialogue_buttons[index]->local_position.y > GetRectangle().size.y-32.0f ||
+            file_dialogue_buttons[index]->local_position.y < 32.0f
+            ){
+                file_dialogue_buttons[index]->spr->visible = false;
+            }
+            else{
+                file_dialogue_buttons[index]->spr->visible = true;
+            }
         }
 
     }
