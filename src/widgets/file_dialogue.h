@@ -117,7 +117,7 @@ public:
             if(file_dialogue_buttons[index]->local_position.y > GetRectangle().size.y-32.0f ||
             file_dialogue_buttons[index]->local_position.y < 32.0f
             ){
-                file_dialogue_buttons[index]->visible = false;
+                file_dialogue_buttons[index]->spr->visible = false;
             }
 
         }
@@ -126,7 +126,7 @@ public:
 
         if(total_page_height > GetRectangle().size.y){
             //scroll_bar->visible_portion_percentage = GetRectangle().size.y - 64.0f / total_page_height;
-            Console::PrintLine("FileDialogue visible_portion_percentage",GetRectangle().size.y - 64.0f / total_page_height);
+            Console::PrintLine("FileDialogue visible_portion_percentage",(GetRectangle().size.y - 64.0f) / total_page_height);
         }
 
     }

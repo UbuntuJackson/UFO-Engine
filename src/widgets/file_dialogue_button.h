@@ -9,12 +9,13 @@
 class FileDialogueButton : public Widget{
 public:
     Timer double_click_timer;
+    WidgetSpriteReference* spr = nullptr;
 
     FileDialogueButton() : Widget(Vector2f(0.0f,0.0f),Vector2f(32.0f,32.0f)){}
     
     void OnLevelEnter(Level* _level){
         Widget::OnLevelEnter(_level);
-        AddChild<WidgetSpriteReference>(
+        spr = AddChild<WidgetSpriteReference>(
             "UFOEngine/folder_icon",
             Vector2f(0.0f,0.0f),
             Vector2f(0.0f,0.0f),
