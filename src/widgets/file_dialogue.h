@@ -99,13 +99,15 @@ public:
 
     void OnUpdate(){
         int rows = 0;
+        float file_x_position = 0.0f;
         for(int index = 0; index < file_dialogue_buttons.size(); index++){
-            int folder_position_x = int(index * 64.0f);
+            file_x_position += 64.0f;
             if(file_dialogue_buttons[index]->local_position.x > GetRectangle().size.x){
                 rows++;
-                file_dialogue_buttons[index]->local_position.x = 0.0f;
+                file_x_position = 0.0f;
             }
 
+            file_dialogue_buttons[index]->local_position.x = file_x_position;
             file_dialogue_buttons[index]->local_position.y = rows*64.0f;
         }
     }
