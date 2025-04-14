@@ -101,7 +101,6 @@ public:
         int rows = 0;
         float file_x_position = 0.0f;
         for(int index = 0; index < file_dialogue_buttons.size(); index++){
-            file_x_position += 64.0f;
             if(file_x_position > GetRectangle().size.x){
                 rows++;
                 file_x_position = 0.0f;
@@ -109,6 +108,8 @@ public:
 
             file_dialogue_buttons[index]->local_position.x = file_x_position;
             file_dialogue_buttons[index]->local_position.y = rows*64.0f;
+
+            file_x_position += 64.0f;
         }
     }
 };
