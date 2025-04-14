@@ -135,7 +135,7 @@ public:
         for(int index = 0; index < file_dialogue_buttons.size(); index++){
             file_dialogue_buttons[index]->local_position.y -= total_page_height*scroll_bar->scroll_percentage;
 
-            if(file_dialogue_buttons[index]->local_position.y > GetRectangle().size.y-32.0f ||
+            if(file_dialogue_buttons[index]->local_position.y > GetRectangle().size.y - 32.0f - 30.0f ||
             file_dialogue_buttons[index]->local_position.y < 32.0f
             ){
                 file_dialogue_buttons[index]->spr->visible = false;
