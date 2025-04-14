@@ -126,7 +126,7 @@ public:
 
         if(total_page_height > GetRectangle().size.y){
             //scroll_bar->visible_portion_percentage = GetRectangle().size.y - 64.0f / total_page_height;
-            Console::PrintLine("FileDialogue visible_portion_percentage",(GetRectangle().size.y - 64.0f) / total_page_height);
+            Console::PrintLine("FileDialogue visible_portion_percentage",(GetRectangle().size.y) / total_page_height);
         }
 
     }
