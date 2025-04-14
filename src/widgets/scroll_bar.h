@@ -7,11 +7,15 @@ class ScrollBar : public Widget{
 public:
     float scroll_percentage = 0.0f;
     float visible_portion_percentage = 1.0f;
+    float scroll_bar_grab_y = 0.0f;
     ScrollBar(Vector2f _local_position, Vector2f _size) : Widget(_local_position, _size){
         
     }
 
     void OnWidgetHovered(){
+        if(Mouse::Get().GetLeftButton().is_pressed){
+            scroll_bar_grab_y = Mouse::Get().GetPosition().y - (GetGlobalPosition().y + scroll_percentage*GetRectangle().size.y);
+        }
         if(Mouse::Get().GetLeftButton().is_held){
             scroll_percentage = (Mouse::Get().GetPosition()-GetGlobalPosition()).y / GetRectangle().size.y;
         }
