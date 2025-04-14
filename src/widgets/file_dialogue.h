@@ -6,7 +6,7 @@
 #include "widget.h"
 #include "../ufo_maths/ufo_maths.h"
 #include "text_field.h"
-#include "file_menu_button.h"
+#include "file_dialogue_button.h"
 
 class FileDialogue : public Widget{
 public:
@@ -80,7 +80,7 @@ public:
 
     void OnLevelEnter(Level* _level){
         Widget::OnLevelEnter(_level);
-        
+
         file_name_text_field = AddChild<TextField>(Vector2f(0.0f, GetRectangle().size.y),Vector2f(200.0f,20.0f));
         file_name_text_field->text = "Hello Text Field";
     }
