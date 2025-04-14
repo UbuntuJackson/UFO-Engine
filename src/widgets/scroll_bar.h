@@ -21,7 +21,7 @@ public:
         
         }
         if(scroll_percentage > 1.0f) scroll_percentage = 1.0f;
-        if(scroll_percentage < 1.0f) scroll_percentage = 0.0f;
+        if(scroll_percentage < 0.0f) scroll_percentage = 0.0f;
     }
 
     void OnWidgetDraw(){
