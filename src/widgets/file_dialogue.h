@@ -89,7 +89,7 @@ public:
         file_name_text_field->text = "Hello Text Field";
         SetDirectory(path_stack.back());
 
-        file_name_text_field->AddChild<ScrollBar>(Vector2f(GetRectangle().size.x-16.0f,0.0f),Vector2f(16.0f,GetRectangle().size.y));
+        scroll_bar = AddChild<ScrollBar>(Vector2f(GetRectangle().size.x-16.0f,0.0f),Vector2f(16.0f,GetRectangle().size.y));
     }
 
     void OnWidgetHovered(){
