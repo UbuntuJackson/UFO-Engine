@@ -131,7 +131,7 @@ public:
 
         }
 
-        float total_page_height = rows*64.0f+64.0f;
+        float total_page_height = rows*vertical_spacing+64.0f;
 
         if(total_page_height > GetRectangle().size.y){
             Console::PrintLine(total_page_height);
