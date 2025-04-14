@@ -27,7 +27,7 @@ public:
     void OnWidgetDraw(){
         Graphics::Get().DrawRectangle(
             GetGlobalPosition()+Vector2f(0.0f,scroll_percentage*GetRectangle().size.y),
-            Vector2f(16.0f,visible_portion_percentage*GetRectangle().size.y), olc::BLACK);
+            Vector2f(16.0f,visible_portion_percentage*GetRectangle().size.y), olc::DARK_CYAN);
     }
 
 };
