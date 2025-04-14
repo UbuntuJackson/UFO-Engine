@@ -48,7 +48,7 @@ public:
     
                 if(OnAddFolder(directory_name)){
                     auto b_folder = AddChild<FileDialogueButton>();
-                    auto t_f = b_folder->AddChild<TextField>(Vector2f(-30.0f,32.0f),Vector2f(120.0f,32.0f));
+                    auto t_f = b_folder->AddChild<TextField>(Vector2f(-50.0f,32.0f),Vector2f(200.0f,32.0f));
                     t_f->text = directory_name;
                     file_dialogue_buttons.push_back(b_folder);
                 }
@@ -117,7 +117,7 @@ public:
     void OnUpdate(){
         int rows = 0;
 
-        float horizontal_spacing = 64.0f*2.0f;
+        float horizontal_spacing = 64.0f*3.0f;
         float vertical_spacing = 64.0f*1.5f;
 
         float file_x_position = 32.0f;
