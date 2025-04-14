@@ -13,7 +13,7 @@ public:
 
     void OnWidgetHovered(){
         if(Mouse::Get().GetLeftButton().is_held){
-            scroll_percentage = (GetGlobalPosition() - Mouse::Get().GetPosition()).y / GetRectangle().size.y;
+            scroll_percentage = (Mouse::Get().GetPosition()-GetGlobalPosition()).y / GetRectangle().size.y;
         }
     }
 
