@@ -17,7 +17,7 @@ public:
             scroll_bar_grab_y = Mouse::Get().GetPosition().y - (GetGlobalPosition().y + scroll_percentage*GetRectangle().size.y);
         }
         if(Mouse::Get().GetLeftButton().is_held){
-            scroll_percentage = (Mouse::Get().GetPosition()-GetGlobalPosition()).y / GetRectangle().size.y;
+            scroll_percentage = (Mouse::Get().GetPosition()-GetGlobalPosition()).y / GetRectangle().size.y + scroll_bar_grab_y;
         }
     }
 
