@@ -26,11 +26,13 @@ public:
     }
 
     void OnWidgetHovered(){
+        bool double_click_happened = false;
         if(Mouse::Get().GetLeftButton().is_pressed && double_click_timer.GetTimeLeft() >= 0.0f){
             OnDoubleClicked();
             double_click_timer.Stop();
+            double_click_happened = true;
         }
-        if(Mouse::Get().GetLeftButton().is_pressed && !double_click_timer.is_started){
+        if(Mouse::Get().GetLeftButton().is_pressed && !double_click_timer.is_started && !double_click_happened){
             double_click_timer.Start(1000.0f);
         }
     }
