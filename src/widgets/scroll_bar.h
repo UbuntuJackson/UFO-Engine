@@ -20,6 +20,8 @@ public:
             scroll_percentage = (Mouse::Get().GetPosition()-(GetGlobalPosition()+Vector2f(0.0f,scroll_bar_grab_y))).y / GetRectangle().size.y;
         
         }
+        if(scroll_percentage > 1.0f) scroll_percentage = 1.0f;
+        if(scroll_percentage < 1.0f) scroll_percentage = 0.0f;
     }
 
     void OnWidgetDraw(){
