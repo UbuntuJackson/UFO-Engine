@@ -24,6 +24,7 @@ public:
             0.0f,
             0
         );
+        visible = false;
     }
 
     void OnWidgetHovered(){
