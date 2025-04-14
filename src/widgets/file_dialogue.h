@@ -95,7 +95,7 @@ public:
 
         scroll_bar = AddChild<ScrollBar>(Vector2f(GetRectangle().size.x-16.0f,0.0f),Vector2f(16.0f,GetRectangle().size.y));
 
-        AddChild<Button>(Vector2f(0.0f, GetRectangle().size.y-15.0f),Vector2f(64.0f,15.0f), "Cancel");
+        b_cancel = AddChild<Button>(Vector2f(0.0f, GetRectangle().size.y-15.0f),Vector2f(64.0f,15.0f), "Cancel");
         AddChild<Button>(Vector2f(64.0f, GetRectangle().size.y-15.0f),Vector2f(64.0f,15.0f), "Save");
     }
 
