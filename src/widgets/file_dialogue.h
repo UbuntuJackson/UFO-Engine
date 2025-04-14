@@ -135,9 +135,11 @@ public:
             file_dialogue_buttons[index]->local_position.y < 32.0f
             ){
                 file_dialogue_buttons[index]->spr->visible = false;
+                file_dialogue_buttons[index]->visible = false;
             }
             else{
                 file_dialogue_buttons[index]->spr->visible = true;
+                file_dialogue_buttons[index]->visible = true;
             }
         }
 
