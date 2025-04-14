@@ -126,7 +126,7 @@ void Widget::OnUpdate(){
 }
 
 bool Widget::SearchForHoveredWidget(){
-    for(int index = widget_handles.size()-1; index > 0; index--){
+    for(int index = widget_handles.size()-1; index >= 0; index--){
         bool found_hovered_widget = widget_handles[index]->SearchForHoveredWidget();
         if(found_hovered_widget) return true;
     }
