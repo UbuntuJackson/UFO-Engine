@@ -103,10 +103,9 @@ public:
             int folder_position_x = int(index * 64.0f);
             if(file_dialogue_buttons[index]->local_position.x > GetRectangle().size.x){
                 rows++;
-
+                file_dialogue_buttons[index]->local_position.x = 0.0f;
             }
 
-            file_dialogue_buttons[index]->local_position.x = folder_position_x % int(GetRectangle().size.x);
             file_dialogue_buttons[index]->local_position.y = rows*64.0f;
         }
     }
