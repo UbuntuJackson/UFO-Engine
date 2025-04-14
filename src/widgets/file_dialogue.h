@@ -47,7 +47,10 @@ public:
                 std::string directory_name = s_path.substr(s_path.find_last_of("/")+1);
     
                 if(OnAddFolder(directory_name)){
-                    file_dialogue_buttons.push_back(AddChild<FileDialogueButton>());
+                    auto b_folder = AddChild<FileDialogueButton>();
+                    auto t_f = b_folder->AddChild<TextField>(Vector2f(0.0f,32.0f),Vector2f(100.0f,32.0f));
+                    t_f->text = directory_name;
+                    file_dialogue_buttons.push_back(b_folder);
                 }
 
                 //auto b = std::make_unique<FileMenuButton>(Vector2f(0.0f, 0.0f),Vector2f(250.0f, 20.0f), directory_name, directory_entry.path().string());
