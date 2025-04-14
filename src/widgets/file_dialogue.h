@@ -98,7 +98,7 @@ public:
         b_cancel = AddChild<Button>(Vector2f(0.0f, GetRectangle().size.y-15.0f),Vector2f(64.0f,15.0f), "Cancel");
         AddChild<Button>(Vector2f(64.0f, GetRectangle().size.y-15.0f),Vector2f(64.0f,15.0f), "Save");
 
-        dynamic_cast<ColourRectangleTheme*>(theme.get())->colour = Colour(0,0,0,200);
+        dynamic_cast<ColourRectangleTheme*>(theme.get())->colour = Colour(0,0,0,220);
     }
 
     void OnWidgetHovered(){
