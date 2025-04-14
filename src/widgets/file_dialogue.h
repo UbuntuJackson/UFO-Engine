@@ -12,7 +12,7 @@ class FileDialogue : public Widget{
 public:
     std::vector<std::string> path_stack;
     TextField* file_name_text_field = nullptr;
-    std::vector<FileMenuButton*> file_menu_buttons;
+    std::vector<FileDialogueButton*> file_menu_buttons;
     
     FileDialogue(Vector2f _local_position, Vector2f size, std::string _directory) : Widget(_local_position, size)
     {
