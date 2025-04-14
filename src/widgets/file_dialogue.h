@@ -88,6 +88,8 @@ public:
         file_name_text_field = AddChild<TextField>(Vector2f(0.0f, GetRectangle().size.y-20.0f),Vector2f(200.0f,20.0f));
         file_name_text_field->text = "Hello Text Field";
         SetDirectory(path_stack.back());
+
+        file_name_text_field->AddChild<ScrollBar>(Vector2f(GetRectangle().size.x-16.0f,0.0f),Vector2f(16.0f,GetRectangle().size.y));
     }
 
     void OnWidgetHovered(){
@@ -125,7 +127,7 @@ public:
         float total_page_height = rows*64.0f+64.0f;
 
         if(total_page_height > GetRectangle().size.y){
-            //scroll_bar->visible_portion_percentage = GetRectangle().size.y - 64.0f / total_page_height;
+            scroll_bar->visible_portion_percentage = GetRectangle().size.y - 64.0f / total_page_height;
             Console::PrintLine("FileDialogue visible_portion_percentage",(GetRectangle().size.y) / total_page_height);
         }
 
