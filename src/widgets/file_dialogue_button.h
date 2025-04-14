@@ -26,8 +26,9 @@ public:
     }
 
     void OnWidgetHovered(){
-        if(Mouse::Get().GetLeftButton().is_pressed && double_click_timer.is_started){
+        if(Mouse::Get().GetLeftButton().is_pressed && double_click_timer.GetTimeLeft() >= 0.0f){
             OnDoubleClicked();
+            double_click_timer.Stop();
         }
         if(Mouse::Get().GetLeftButton().is_pressed && !double_click_timer.is_started){
             double_click_timer.Start(1000.0f);
