@@ -86,14 +86,14 @@ public:
     void OnLevelEnter(Level* _level){
         Widget::OnLevelEnter(_level);
 
-        file_name_text_field = AddChild<TextField>(Vector2f(0.0f, GetRectangle().size.y-40.0f),Vector2f(200.0f,20.0f));
+        file_name_text_field = AddChild<TextField>(Vector2f(0.0f, GetRectangle().size.y-30.0f),Vector2f(200.0f,15.0f));
         file_name_text_field->text = "Hello Text Field";
         SetDirectory(path_stack.back());
 
         scroll_bar = AddChild<ScrollBar>(Vector2f(GetRectangle().size.x-16.0f,0.0f),Vector2f(16.0f,GetRectangle().size.y));
 
-        AddChild<Button>(Vector2f(0.0f, GetRectangle().size.y-20.0f),Vector2f(64.0f,20.0f), "Cancel");
-        AddChild<Button>(Vector2f(0.0f, GetRectangle().size.y-20.0f),Vector2f(64.0f*2.0f,20.0f), "Save");
+        AddChild<Button>(Vector2f(0.0f, GetRectangle().size.y-15.0f),Vector2f(64.0f,15.0f), "Cancel");
+        AddChild<Button>(Vector2f(64.0f, GetRectangle().size.y-15.0f),Vector2f(64.0f,15.0f), "Save");
     }
 
     void OnWidgetHovered(){
