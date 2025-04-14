@@ -8,12 +8,15 @@
 #include "text_field.h"
 #include "file_dialogue_button.h"
 #include "../ufo_engine/ufo_engine.h"
+#include "scroll_bar.h"
 
 class FileDialogue : public Widget{
 public:
     std::vector<std::string> path_stack;
     TextField* file_name_text_field = nullptr;
     std::vector<FileDialogueButton*> file_dialogue_buttons;
+
+    ScrollBar* scroll_bar = nullptr;
     
     FileDialogue(Vector2f _local_position, Vector2f size, std::string _directory) : Widget(_local_position, size)
     {
@@ -107,9 +110,24 @@ public:
             }
 
             file_dialogue_buttons[index]->local_position.x = file_x_position;
-            file_dialogue_buttons[index]->local_position.y = rows*64.0f;
+            file_dialogue_buttons[index]->local_position.y = rows*64.0f+32.0f;
 
             file_x_position += 64.0f;
+            
+            if(file_dialogue_buttons[index]->local_position.y > GetRectangle().size.y-32.0f ||
+            file_dialogue_buttons[index]->local_position.y < 32.0f
+            ){
+                file_dialogue_buttons[index]->visible = false;
+            }
+
         }
+
+        float total_page_height = rows*64.0f+64.0f;
+
+        if(total_page_height > GetRectangle().size.y){
+            //scroll_bar->visible_portion_percentage = GetRectangle().size.y - 64.0f / total_page_height;
+            Console::PrintLine("FileDialogue visible_portion_percentage",GetRectangle().size.y - 64.0f / total_page_height);
+        }
+
     }
 };
