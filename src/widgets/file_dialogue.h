@@ -115,7 +115,7 @@ public:
         int rows = 0;
 
         float horizontal_spacing = 64.0f*2.0f;
-        float vertical_spacing = 64.0f;
+        float vertical_spacing = 64.0f*1.5f;
 
         float file_x_position = 32.0f;
         for(int index = 0; index < file_dialogue_buttons.size(); index++){
