@@ -114,6 +114,9 @@ public:
     void OnUpdate(){
         int rows = 0;
 
+        float horizontal_spacing = 64.0f*2.0f;
+        float vertical_spacing = 64.0f;
+
         float file_x_position = 32.0f;
         for(int index = 0; index < file_dialogue_buttons.size(); index++){
             if(file_x_position > GetRectangle().size.x-32.0f){
@@ -122,9 +125,9 @@ public:
             }
 
             file_dialogue_buttons[index]->local_position.x = file_x_position;
-            file_dialogue_buttons[index]->local_position.y = rows*64.0f+32.0f;
+            file_dialogue_buttons[index]->local_position.y = rows*vertical_spacing+32.0f;
 
-            file_x_position += 64.0f;
+            file_x_position += horizontal_spacing;
 
         }
 
