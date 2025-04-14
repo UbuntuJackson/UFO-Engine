@@ -66,6 +66,7 @@ void Level::Load(){
     AssetManager::Get().LoadDecal("../UFO-Engine/res/engine/camera_icon.png", "camera_icon");
     AssetManager::Get().LoadDecal("../UFO-Engine/res/engine/filmroll.png", "filmroll");
     AssetManager::Get().LoadDecal("../UFO-Engine/res/engine/character.png", "character");
+    AssetManager::Get().LoadDecal("../UFO-Engine/res/engine/widgets/fold.png", "UFOEngine/folder_icon");
     
     OnResourceLoad();
 
