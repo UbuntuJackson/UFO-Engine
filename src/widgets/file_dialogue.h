@@ -48,7 +48,7 @@ public:
     
                 if(OnAddFolder(directory_name)){
                     auto b_folder = AddChild<FileDialogueButton>();
-                    auto t_f = b_folder->AddChild<TextField>(Vector2f(0.0f,32.0f),Vector2f(100.0f,32.0f));
+                    auto t_f = b_folder->AddChild<TextField>(Vector2f(-60.0f,32.0f),Vector2f(120.0f,32.0f));
                     t_f->text = directory_name;
                     file_dialogue_buttons.push_back(b_folder);
                 }
