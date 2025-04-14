@@ -7,12 +7,13 @@
 #include "../ufo_maths/ufo_maths.h"
 #include "text_field.h"
 #include "file_dialogue_button.h"
+#include "../ufo_engine/ufo_engine.h"
 
 class FileDialogue : public Widget{
 public:
     std::vector<std::string> path_stack;
     TextField* file_name_text_field = nullptr;
-    std::vector<FileDialogueButton*> file_menu_buttons;
+    std::vector<FileDialogueButton*> file_dialogue_buttons;
     
     FileDialogue(Vector2f _local_position, Vector2f size, std::string _directory) : Widget(_local_position, size)
     {
@@ -39,7 +40,7 @@ public:
                 std::string directory_name = s_path.substr(s_path.find_last_of("/")+1);
     
                 if(OnAddFolder(directory_name)){
-                    AddChild<FileDialogueButton>();
+                    file_dialogue_buttons.push_back(AddChild<FileDialogueButton>());
                 }
 
                 //auto b = std::make_unique<FileMenuButton>(Vector2f(0.0f, 0.0f),Vector2f(250.0f, 20.0f), directory_name, directory_entry.path().string());
@@ -87,8 +88,16 @@ public:
     }
 
     void OnWidgetHovered(){
-        for(const auto& file_menu_button : file_menu_buttons){
+        for(const auto& file_menu_button : file_dialogue_buttons){
 
         }
+    }
+
+    void OnPurgeDeadActors(){
+        Engine::Get().current_level->PurgeHandles(file_dialogue_buttons);
+    }
+
+    void OnUpdate(){
+        
     }
 };
