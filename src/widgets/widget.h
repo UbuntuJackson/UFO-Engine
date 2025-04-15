@@ -30,6 +30,7 @@ public:
     std::vector<Widget*> widget_handles;
 
     void OnPurgeDeadActors(){
+        Console::PrintLine("Widget::OnPurgeDeadActors");
         Engine::Get().current_level->PurgeHandles(widget_handles);
     }
 

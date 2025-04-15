@@ -109,6 +109,7 @@ void FileDialogue::OnWidgetHovered(){
 }
 
 void FileDialogue::OnPurgeDeadActors(){
+    Widget::OnPurgeDeadActors();
     Engine::Get().current_level->PurgeHandles(file_dialogue_buttons);
 }
 
