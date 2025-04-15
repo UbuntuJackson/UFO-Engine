@@ -517,6 +517,11 @@ void Level::Update(){
 
     OnUpdate();
 
+    //Recursive widget system
+    for(const auto& widget : widget_handles){
+        widget->ResetWidget();
+    }
+
     for(auto&& actor : new_actor_queue){
         
         Actor* actor_ptr = actor.get();

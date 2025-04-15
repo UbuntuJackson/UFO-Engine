@@ -93,6 +93,8 @@ public:
     virtual void OnActiveUpdate();
     virtual void OnSetInactive();
     virtual void OnSetActive();
+    void ResetWidget();
+    virtual void OnResetWidget();
 
     void OnWidgetDraw();
 

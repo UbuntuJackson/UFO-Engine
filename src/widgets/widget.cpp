@@ -153,6 +153,14 @@ void Widget::OnSetActive(){
 
 }
 
+void Widget::ResetWidget(){
+    for(const auto& widget : widget_handles) widget->ResetWidget();
+    OnResetWidget();
+}
+void Widget::OnResetWidget(){
+
+}
+
 void Widget::OnWidgetDraw(){
     if(!visible) return;
     theme->OnDraw(this);

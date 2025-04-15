@@ -44,7 +44,6 @@ void Button::OnWidgetHovered(){
 void Button::OnUpdate(){
     Widget::OnUpdate();
     Refresh();
-    on_widget_hovered_this_frame = false;
 }
 
 void Button::OnPaused(){
