@@ -5,11 +5,12 @@
 #include <memory>
 #include "widget.h"
 #include "../ufo_maths/ufo_maths.h"
-#include "text_field.h"
-#include "file_dialogue_folder_button.h"
 #include "../ufo_engine/ufo_engine.h"
-#include "scroll_bar.h"
-#include "button.h"
+
+class Button;
+class ScrollBar;
+class TextField;
+class FileDialogueButton;
 
 class FileDialogue : public Widget{
 public:

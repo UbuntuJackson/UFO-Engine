@@ -162,3 +162,8 @@ void FileDialogue::OnOpenFolder(const std::string& _file_name, const std::string
     SetDirectory(_path);
     Console::PrintLine("FileDialogue::OnOpenFolder",_file_name,_path);
 }
+
+void FileDialogue::OnOpenFile(const std::string& _file_name, const std::string& _path){
+    
+    Console::PrintLine("FileDialogue::OnOpenFile",_file_name,_path);
+}
