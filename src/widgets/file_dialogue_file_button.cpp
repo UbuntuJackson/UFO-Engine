@@ -17,6 +17,6 @@ void FileDialogueFileButton::OnLevelEnter(Level* _level){
     tf_file_name = AddChild<TextField>(Vector2f(-75.0f+15.0f,32.0f),Vector2f(150.0f,32.0f));
 }
 
-void FileDialogueFileButton::OnDoubleClick(FileDialogue* _fd){
+void FileDialogueFileButton::OnDoubleClicked(FileDialogue* _fd){
     
 }

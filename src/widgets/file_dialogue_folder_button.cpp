@@ -13,6 +13,6 @@ void FileDialogueFolderButton::OnLevelEnter(Level* _level){
 
 }
 
-void FileDialogueFolderButton::OnDoubleClick(FileDialogue* _fd){
+void FileDialogueFolderButton::OnDoubleClicked(FileDialogue* _fd){
     _fd->OnOpenFolder(tf_file_name->text,path);
 }

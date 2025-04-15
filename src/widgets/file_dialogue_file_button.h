@@ -9,5 +9,5 @@ public:
 
     void OnLevelEnter(Level* _level);
 
-    void OnDoubleClick(FileDialogue* _fd);
+    void OnDoubleClicked(FileDialogue* _fd);
 };
