@@ -10,7 +10,7 @@ FileDialogueFileButton::FileDialogueFileButton(FileDialogue* _file_dialogue) : F
 }
 
 void FileDialogueFileButton::OnLevelEnter(Level* _level){
-    Widget::OnLevelEnter(_level);
+    FileDialogueButton::OnLevelEnter(_level);
     spr->key = "UFOEngine/file_icon";
     visible = false;
 
