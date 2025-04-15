@@ -484,6 +484,11 @@ void Level::Update(){
 
     new_actor_queue.clear();
 
+    //Recursive widget system
+    for(const auto& widget : widget_handles){
+        widget->ResetWidget();
+    }
+
     OnCameraManipulation();
 
     for(const auto& camera : camera_handles){
@@ -537,11 +542,6 @@ void Level::Update(){
     /*for(const auto& camera : camera_handles){
         camera->ClampLocalPosition();
     }*/
-
-    //Recursive widget system
-    for(const auto& widget : widget_handles){
-        widget->ResetWidget();
-    }
 
     new_actor_queue.clear();
 
