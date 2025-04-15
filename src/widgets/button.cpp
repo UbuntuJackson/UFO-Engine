@@ -22,7 +22,6 @@ text{_text}
 
 void Button::OnLevelEnter(Level* _level){
     Widget::OnLevelEnter(_level);
-    Console::Print("Button Onstart Ran\n");
     Refresh();
 }
 

@@ -52,6 +52,9 @@ set(
     src/widgets/colour_rectangle_theme.cpp
     src/widgets/nine_patch_theme.cpp
     src/widgets/button.cpp
+    src/widgets/file_dialogue.cpp
+    src/widgets/file_dialogue_folder_button.cpp
+    src/widgets/file_dialogue_button.cpp
     #src/widget/new_widget.cpp
     #src/widget/menu_maker.cpp
     #src/player_body/player_body.cpp
