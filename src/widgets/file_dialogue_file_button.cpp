@@ -3,6 +3,7 @@
 #include "file_dialogue.h"
 #include "../level/level.h"
 #include "../sprite_reference/widget_sprite_reference.h"
+#include "text_field.h"
 
 FileDialogueFileButton::FileDialogueFileButton(FileDialogue* _file_dialogue) : FileDialogueButton(_file_dialogue){
 
