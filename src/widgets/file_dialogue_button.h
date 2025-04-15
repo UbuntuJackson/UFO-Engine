@@ -16,8 +16,9 @@ public:
     WidgetSpriteReference* spr = nullptr;
     TextField* tf_file_name = nullptr;
     std::string path;
+    FileDialogue* file_dialogue = nullptr;
 
-    FileDialogueButton();
+    FileDialogueButton(FileDialogue* _file_dialogue);
     
     void OnLevelEnter(Level* _level);
 

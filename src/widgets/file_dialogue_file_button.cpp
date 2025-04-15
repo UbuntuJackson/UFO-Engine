@@ -4,7 +4,7 @@
 #include "../level/level.h"
 #include "../sprite_reference/widget_sprite_reference.h"
 
-FileDialogueFileButton::FileDialogueFileButton() : FileDialogueButton(){
+FileDialogueFileButton::FileDialogueFileButton(FileDialogue* _file_dialogue) : FileDialogueButton(_file_dialogue){
 
 }
 

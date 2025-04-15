@@ -5,7 +5,7 @@ class FileDialogue;
 
 class FileDialogueFileButton : public FileDialogueButton{
 public:
-    FileDialogueFileButton();
+    FileDialogueFileButton(FileDialogue* _file_dialogue);
 
     void OnLevelEnter(Level* _level);
 

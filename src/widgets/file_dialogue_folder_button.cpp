@@ -1,7 +1,9 @@
 #include "file_dialogue_folder_button.h"
 #include "file_dialogue.h"
+#include "text_field.h"
+#include "file_dialogue.h"
 
-FileDialogueFolderButton::FileDialogueFolderButton() : FileDialogueButton(){
+FileDialogueFolderButton::FileDialogueFolderButton(FileDialogue* _file_dialogue) : FileDialogueButton(_file_dialogue){
 
 }
 

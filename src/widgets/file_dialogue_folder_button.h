@@ -8,7 +8,7 @@ class FileDialogueFolderButton : public FileDialogueButton{
 private:
     Level* level = nullptr;
 public:
-    FileDialogueFolderButton();
+    FileDialogueFolderButton(FileDialogue* _file_dialogue);
 
     void OnLevelEnter(Level* _level);
 

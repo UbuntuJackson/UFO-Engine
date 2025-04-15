@@ -9,7 +9,8 @@
 
 class FileDialogue;
 
-FileDialogueButton::FileDialogueButton() : Widget(Vector2f(0.0f,0.0f),Vector2f(32.0f,32.0f)){}
+FileDialogueButton::FileDialogueButton(FileDialogue* _file_dialogue) : Widget(Vector2f(0.0f,0.0f),Vector2f(32.0f,32.0f)),
+file_dialogue{_file_dialogue}{}
 
 void FileDialogueButton::OnLevelEnter(Level* _level){
     Widget::OnLevelEnter(_level);
@@ -34,7 +35,7 @@ void FileDialogueButton::OnWidgetHovered(){
     
     bool double_click_happened = false;
     if(Mouse::Get().GetLeftButton().is_pressed && double_click_timer.GetTimeLeft() >= 0.0f){
-        OnDoubleClicked();
+        OnDoubleClicked(file_dialogue);
         double_click_timer.Stop();
         double_click_happened = true;
     }
