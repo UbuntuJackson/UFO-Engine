@@ -54,6 +54,7 @@ set(
     src/widgets/button.cpp
     src/widgets/file_dialogue.cpp
     src/widgets/file_dialogue_folder_button.cpp
+    src/widgets/file_dialogue_file_button.cpp
     src/widgets/file_dialogue_button.cpp
     #src/widget/new_widget.cpp
     #src/widget/menu_maker.cpp
