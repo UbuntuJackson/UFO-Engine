@@ -136,10 +136,9 @@ void FileDialogue::OnUpdate(){
     float total_page_height = rows*vertical_spacing+64.0f;
 
     if(total_page_height > GetRectangle().size.y){
-        Console::PrintLine(total_page_height);
+        
         scroll_bar->visible_portion_percentage = (GetRectangle().size.y - 64.0f - 30.0f) / total_page_height;
         
-        Console::PrintLine("FileDialogue visible_portion_percentage",(GetRectangle().size.y) / total_page_height);
     }
 
     for(int index = 0; index < file_dialogue_buttons.size(); index++){
