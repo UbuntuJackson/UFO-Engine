@@ -18,10 +18,10 @@ on_clicked{_on_clicked},
 text{_text}
 {
     
-    Engine::Get().current_level->widget_handles.push_back(this);
 }
 
 void Button::OnLevelEnter(Level* _level){
+    Widget::OnLevelEnter(_level);
     Console::Print("Button Onstart Ran\n");
     Refresh();
 }
