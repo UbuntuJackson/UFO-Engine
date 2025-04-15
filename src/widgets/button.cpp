@@ -70,6 +70,10 @@ bool Button::IsReleased(){
     return false;
 }
 
+void Button::OnResetWidget(){
+    on_widget_hovered_this_frame = false;
+}
+
 void Button::OnWidgetDraw(){
     if(!visible) return;
         

@@ -38,6 +38,7 @@ public:
     bool IsHeld();
     bool IsReleased();
     bool IsHovered();
+    void OnResetWidget();
 
     float font_height = 8.0f;
 
