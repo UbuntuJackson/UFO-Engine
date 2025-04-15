@@ -37,7 +37,7 @@ void FileDialogue::SetDirectory(std::string _path){
             std::string directory_name = s_path.substr(s_path.find_last_of("/")+1);
 
             if(OnAddFolder(directory_name)){
-                auto b_folder = AddChild<FileDialogueFolderButton>();
+                auto b_folder = AddChild<FileDialogueFolderButton>(this);
                 b_folder->tf_file_name->text = directory_name;
                 file_dialogue_buttons.push_back(b_folder);
                 b_folder->path = path_stack.back()+"/"+directory_name;
@@ -62,7 +62,7 @@ void FileDialogue::SetDirectory(std::string _path){
             std::string file_name = s_path.substr(s_path.find_last_of("/")+1);
             
             if(OnAddFile(file_name)){
-                auto b_file = AddChild<FileDialogueFileButton>();
+                auto b_file = AddChild<FileDialogueFileButton>(this);
                 b_file->tf_file_name->text = file_name;
                 file_dialogue_buttons.push_back(b_file);
                 b_file->path = path_stack.back()+"/"+file_name;
