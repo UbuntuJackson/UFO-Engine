@@ -30,6 +30,8 @@ public:
     void OnLevelEnter(Level* _level);
     void OnSetup(Level* _level);
     void Refresh();
+    bool on_widget_hovered_this_frame = false;
+    void OnWidgetHovered();
     void OnUpdate();
     void OnPaused();
     bool IsPressed();

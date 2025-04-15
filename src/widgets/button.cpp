@@ -37,6 +37,10 @@ void Button::Refresh(){
     }
 }
 
+void Button::OnWidgetHovered(){
+    on_widget_hovered_this_frame = true;
+}
+
 void Button::OnUpdate(){
     Widget::OnUpdate();
     Refresh();
@@ -53,7 +57,7 @@ bool Button::IsPressed(){
     return false;
 }
 bool Button::IsHovered(){
-    return ufoMaths::RectangleVsPoint(GetRectangle(), Mouse::GetPosition());
+    return on_widget_hovered_this_frame;
 }
 bool Button::IsHeld(){
     if(!IsHovered()) return false;

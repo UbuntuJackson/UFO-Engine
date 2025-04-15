@@ -490,6 +490,12 @@ void Level::Update(){
         camera->EarlyUpdate();
     }
 
+    //Recursive widget system
+    for(const auto& widget : widget_handles){
+        widget->SearchForHoveredWidget();
+    }
+    if(active_widget) active_widget->OnActiveUpdate();
+
     if(!paused){
         for(const auto& actor : actors){
             actor->Update(olc::vf2d(0.0f, 0.0f));
@@ -500,11 +506,6 @@ void Level::Update(){
             actor->Paused();
         }
     }
-
-    for(const auto& widget : widget_handles){
-        widget->SearchForHoveredWidget();
-    }
-    if(active_widget) active_widget->OnActiveUpdate();
 
     for(const auto& collision_body : collision_body_handles){
         collision_body->HandleUpdate();
