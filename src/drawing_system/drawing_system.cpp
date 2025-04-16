@@ -84,22 +84,6 @@ DrawingSystem::Draw(const olc::vf2d& _point, Camera* _camera,  const olc::Pixel&
 }
 
 void
-DrawingSystem::Draw(const SpriteReference& _sprite){
-    if(!_sprite.visible) return;
-    ufo::Rectangle sample_rectangle = GetFrameFromSpriteSheet(_sprite.key,_sprite.current_frame_index,_sprite.frame_size);
-    Engine::Get().pixel_game_engine.DrawPartialRotatedDecal(
-        _sprite.position,
-        AssetManager::Get().GetDecal(_sprite.key),
-        _sprite.rotation,
-        _sprite.offset,
-        sample_rectangle.position,
-        sample_rectangle.size,
-        _sprite.scale,
-        _sprite.tint
-    );
-}
-
-void
 DrawingSystem::Draw(const SpriteReference& _sprite, Camera* _camera){
     if(!_sprite.visible) return;
     //Console::Out("input for the transform",_sprite.position);

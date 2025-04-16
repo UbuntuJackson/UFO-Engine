@@ -44,10 +44,6 @@ public:
     static void Draw(const olc::vf2d& _point, const olc::Pixel& _colour);
     static void Draw(const olc::vf2d& _point, Camera* _camera, const olc::Pixel& _colour);
 
-    static void Draw(const SpriteReference& _ufo_sprite);
-
-    static void Draw(const SpriteReference& _ufo_sprite, Camera* _camera);
-
     static void DrawString(const olc::vf2d& _position,const std::string& _s, const olc::Pixel& _colour, const olc::vf2d& _scale);
 };
 
