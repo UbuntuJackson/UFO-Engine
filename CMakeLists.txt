@@ -27,8 +27,6 @@ endif()
 set(
     SRC
     src/asset_manager/asset_manager.cpp
-    src/asset_manager/level_asset_manager.cpp
-    src/asset_manager/get_rect_from_index.cpp
     #src/animation/animation_bundle.cpp
     #src/animation/animation_manager.cpp
     #src/background/background_system.cpp

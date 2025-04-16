@@ -3,9 +3,9 @@
 #include "asset_manager.h"
 #include "../console/console.h"
 #include <unordered_map>
-#include "../ufo_engine/ufo_engine.h"
 #include "../external/olcSoundWaveEngine.h"
 #include "../shapes/rectangle.h"
+#include "../ufo_engine/ufo_engine.h"
 
 std::unordered_map<std::string, std::unique_ptr<olc::Sprite>>& AssetManager::GetSprites(){
     return sprites;
@@ -97,6 +97,12 @@ olc::sound::Wave* AssetManager::GetAudio(std::string _name){
 void AssetManager::StopAudio(std::string _name){
     auto wf = audio_wave_form.at(_name);
     Engine::Get().wave_engine.StopWaveform(wf);
+}
+
+ufo::Rectangle
+AssetManager::GetRectangle(int _x, int _y, olc::vf2d _frame_size){
+    ufo::Rectangle rect = ufo::Rectangle({(float)(_x * _frame_size.x), (float)(_y * _frame_size.y)}, _frame_size);
+    return rect;
 }
 
 ufo::Rectangle

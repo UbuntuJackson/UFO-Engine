@@ -63,7 +63,7 @@ void TileMap::OnDraw(Camera* _camera){
                 olc::vd2d tile_position = {index_x*tileset.tile_width, index_y*tileset.tile_height};
 
                 if(tileset.tileset_start_id <= tile_id && tile_id < tileset.tileset_start_id+tileset.tile_count){
-                    ufo::Rectangle sample_rectangle = GetFrameFromSpriteSheet(tileset.name,tile_id-tileset.tileset_start_id,{tileset.tile_width, tileset.tile_height});
+                    ufo::Rectangle sample_rectangle = AssetManager::Get().GetFrameFromSpriteSheet(tileset.name,tile_id-tileset.tileset_start_id,{tileset.tile_width, tileset.tile_height});
                     //Console::Out("sample rectangle:", sample_rectangle.position, sample_rectangle.size);
                     Engine::Get().pixel_game_engine.DrawPartialRotatedDecal(
                         _camera->Transform(tile_position),

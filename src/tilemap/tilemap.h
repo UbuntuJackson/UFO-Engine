@@ -5,7 +5,6 @@
 #include <string>
 #include "tileset_data.h"
 #include "../external/olcPixelGameEngine.h"
-#include "../asset_manager/get_rect_from_index.h"
 #include "../json/json.h"
 #include "../actor/actor.h"
 #include "../shapes/rectangle.h"
