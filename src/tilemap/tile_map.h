@@ -1,5 +1,6 @@
 #pragma once
 
+#include <memory>
 #include "../ufo_maths/ufo_maths.h"
 #include "../actor/actor.h"
 #include "../json/json_dictionary.h"
