@@ -33,7 +33,6 @@ set(
     #src/animation/animation_manager.cpp
     #src/background/background_system.cpp
     src/camera/camera.cpp
-    src/camera/transformations.cpp
     src/drawing_system/drawing_system.cpp
     src/external/olcPixelGameEngine.cpp
     src/external/olcSoundWaveEngine.cpp
