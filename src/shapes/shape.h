@@ -5,7 +5,6 @@
 #include "../actor/actor.h"
 #include "../drawing_system/drawing_system.h"
 #include "../camera/camera.h"
-#include "../ufo_engine/ufo_engine.h"
 #include "../console/console.h"
 /*class ShapeBase : Actor{
 
