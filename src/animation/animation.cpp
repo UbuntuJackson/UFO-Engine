@@ -22,7 +22,6 @@ void Animation::SetAnimation(std::string _name){
 }
 
 void Animation::OnUpdate(){
-    current_animation_state->local_position = local_position;
     frame_counter += Engine::Get().GetDeltaTime() * current_animation_state->pace;
     if(frame_counter >= current_animation_state->number_of_frames) cycle_count++;
     frame_counter = ufoMaths::Wrap(frame_counter, 0.0f, (float)current_animation_state->number_of_frames);
@@ -30,7 +29,7 @@ void Animation::OnUpdate(){
 }
 
 void Animation::OnDraw(Camera* _camera){
-    current_animation_state->local_position = local_position;
+    current_animation_state->local_position = GetGlobalPosition();
     current_animation_state->Draw(_camera);
 }
 
