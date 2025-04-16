@@ -101,7 +101,7 @@ void AssetManager::StopAudio(std::string _name){
 ufo::Rectangle
 AssetManager::GetFrameFromSpriteSheet(std::string _sprite_key, int _frame, olc::vf2d _frame_size){
     return GetRectangle(
-        (int)_frame % (AssetManager::Get().GetDecal(_sprite_key)->sprite->Size().x/(int)_frame_size.x), //1 can only give me x = 0
-        (int)_frame / (AssetManager::Get().GetDecal(_sprite_key)->sprite->Size().x/(int)_frame_size.x),
+        (int)_frame % (GetDecal(_sprite_key)->sprite->Size().x/(int)_frame_size.x), //1 can only give me x = 0
+        (int)_frame / (GetDecal(_sprite_key)->sprite->Size().x/(int)_frame_size.x),
         _frame_size); //1 can only give y = 1
 }
