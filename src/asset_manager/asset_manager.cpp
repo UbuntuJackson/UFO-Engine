@@ -5,6 +5,7 @@
 #include <unordered_map>
 #include "../ufo_engine/ufo_engine.h"
 #include "../external/olcSoundWaveEngine.h"
+#include "../shapes/rectangle.h"
 
 std::unordered_map<std::string, std::unique_ptr<olc::Sprite>>& AssetManager::GetSprites(){
     return sprites;
