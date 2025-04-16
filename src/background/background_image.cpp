@@ -7,9 +7,9 @@
 #include "../drawing_system/drawing_system.h"
 #include "../ufo_maths/ufo_maths.h"
 
-BackgroundImage::BackgroundImage(std::string _key, olc::vf2d _position, olc::vf2d _offset, olc::vf2d _frame_size, olc::vf2d _scale, float _rotation, int _z_index, olc::vf2d _parallax, bool _temporary) :
+BackgroundImage::BackgroundImage(std::string _key, olc::vf2d _position, olc::vf2d _offset, olc::vf2d _frame_size, olc::vf2d _scale, float _rotation, olc::vf2d _parallax) :
     parallax{_parallax},
-    SpriteReference(_key, _position, _offset, _frame_size, _scale, _rotation, _z_index, _temporary){
+    SpriteReference(_key, _position, _offset, _frame_size, _scale, _rotation){
         Engine::Get().current_level->background_image_handles.push_back(this);
     }
 
