@@ -11,7 +11,7 @@
 LevelWidgetSpriteReference::LevelWidgetSpriteReference(std::string _key, olc::vf2d _position, olc::vf2d _offset, olc::vf2d _frame_size, olc::vf2d _scale, float _rotation) :
 AbstractSpriteReference(_key, _position,_offset,_frame_size, _scale, _rotation)
     {
-        asset_manager = &AssetManager::Get();
+        asset_manager = &(Engine::Get().current_level->asset_manager);
         number_of_frames = asset_manager->GetDecal(_key)->sprite->Size().x/(int)_frame_size.x * asset_manager->GetDecal(_key)->sprite->Size().y/(int)_frame_size.y;
     }
 
