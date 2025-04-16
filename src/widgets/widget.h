@@ -5,7 +5,6 @@
 #include <vector>
 #include "../shapes/rectangle.h"
 #include "../external/olcPixelGameEngine.h"
-#include "../camera/camera.h"
 #include "../json/json.h"
 #include "../actor/actor.h"
 #include "../ufo_maths/ufo_maths.h"
