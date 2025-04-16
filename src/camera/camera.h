@@ -61,7 +61,7 @@ public:
     Circle Transform(const Circle& _circle);
     Ray2 Transform(const Ray2& _ray);
     Pill Transform(const Pill& _pill);
-    SpriteReference Transform(const SpriteReference& _sprite);
+    //SpriteReference Transform(const SpriteReference& _sprite);
     bool IsOnScreen(olc::vf2d _position, olc::vf2d _offset = {0.0f, 0.0f});
     ufo::Rectangle GetOnScreenRectangleInWorld(olc::vf2d _offset = {0.0f, 0.0f});
 };

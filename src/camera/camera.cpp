@@ -130,7 +130,7 @@ Ray2 Camera::Transform(const Ray2& _ray){
     );
 }
 
-SpriteReference Camera::Transform(const SpriteReference& _sprite){
+/*SpriteReference Camera::Transform(const SpriteReference& _sprite){
     olc::vf2d transformed_position = Transform(_sprite.position);
     SpriteReference transformed_sprite(
         _sprite.key,
@@ -145,7 +145,7 @@ SpriteReference Camera::Transform(const SpriteReference& _sprite){
     transformed_sprite.current_frame_index = _sprite.current_frame_index;
     transformed_sprite.tint = _sprite.tint;
     return transformed_sprite;
-}
+}*/
 
 Pill
 Camera::Transform(const Pill& _pill){
