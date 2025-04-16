@@ -32,6 +32,8 @@ public:
 
     static AssetManager& Get(){static AssetManager self; return self;} //this practically makes AssetManager global.
 
+    ufo::Rectangle
+    GetFrameFromSpriteSheet(std::string _sprite_key, int _frame, olc::vf2d _frame_size);
 };
 
 #endif
