@@ -30,8 +30,8 @@ void Animation::OnUpdate(){
 }
 
 void Animation::OnDraw(Camera* _camera){
-    current_animation_state->position = position;
-    current_animation_state->OnDraw(_camera);
+    current_animation_state->local_position = local_position;
+    current_animation_state->Draw(_camera);
 }
 
 //std::unique_ptr<Animation> Animation::Load(Json* _json){}
