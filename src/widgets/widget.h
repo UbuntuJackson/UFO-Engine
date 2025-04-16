@@ -29,10 +29,7 @@ public:
 
     std::vector<Widget*> widget_handles;
 
-    void OnPurgeDeadActors(){
-        Console::PrintLine("Widget::OnPurgeDeadActors");
-        Engine::Get().current_level->PurgeHandles(widget_handles);
-    }
+    void OnPurgeDeadActors();
 
     void OnAddChild(Actor* _actor){
         Widget* w = dynamic_cast<Widget*>(_actor);
@@ -99,11 +96,7 @@ public:
 
     void OnWidgetDraw();
 
-    void OnPurge(Level* _level){
-        if(_level->GetActiveWidget() == this){
-            _level->SetActiveWidget(nullptr);
-        }
-    }
+    void OnPurge(Level* _level);
 
 };
 

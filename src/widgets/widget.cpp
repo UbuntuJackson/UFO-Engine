@@ -166,3 +166,14 @@ void Widget::OnWidgetDraw(){
     theme->OnDraw(this);
     
 }
+
+void Widget::OnPurgeDeadActors(){
+    Console::PrintLine("Widget::OnPurgeDeadActors");
+    Engine::Get().current_level->PurgeHandles(widget_handles);
+}
+
+void Widget::OnPurge(Level* _level){
+    if(_level->GetActiveWidget() == this){
+        _level->SetActiveWidget(nullptr);
+    }
+}
