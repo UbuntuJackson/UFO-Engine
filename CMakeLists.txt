@@ -95,6 +95,7 @@ set(
     src/shapes/raw_shape_base.cpp
     src/shapes/pill.cpp
     src/shapes/collision_pill.cpp
+    src/ufo_clock/timer.cpp
 
     src/profile/profile.cpp
 
