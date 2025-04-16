@@ -204,7 +204,7 @@ void Level::Load(){
                 olc::vf2d(0.0f,0.0f),
                 image_size,
                 olc::vf2d(1.0f, 1.0f),
-                0.0f, 1, olc::vf2d(parallax_x, parallax_y), 0));
+                0.0f, olc::vf2d(parallax_x, parallax_y)));
         }
 
         if(layer_dictionary.Get("type").AsString() == "imagelayer" && layer_dictionary.Get("class").AsString() == "SpriteReference"){
