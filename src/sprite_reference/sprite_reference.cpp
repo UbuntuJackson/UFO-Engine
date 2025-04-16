@@ -16,6 +16,7 @@ SpriteReference::SpriteReference(std::string _key, olc::vf2d _position, olc::vf2
     }
 
 void SpriteReference::OnDraw(Camera* _camera){
+    Console::PrintLine("SpriteReference::OnDraw");
 
     if(!visible) return;
     ufo::Rectangle sample_rectangle = asset_manager->GetFrameFromSpriteSheet(key,current_frame_index,frame_size);
