@@ -49,7 +49,7 @@ public:
     //void DrawCircle(Vector2f _position, Vector2f _size, int _line_thickness);
     //void DrawCircleFilled(Vector2f _position, Vector2f _size);
     void DrawLine(Vector2f _start, Vector2f _end, Colour _colour);
-    void DrawDecal(const std::string& _key, Vector2f _drawing_position, Vector2f _centre, Vector2f _source_position, Vector2f _source_size, Vector2f _scale, float _rotation, Colour _tint);
-    void DrawFrame(const std::string& _key, Vector2f _drawing_position, Vector2f _centre, Vector2f _frame_size, Vector2f _scale, int _index, float _rotation, Colour _tint);
+    void DrawDecal(AssetManager& _asset_manager, const std::string& _key, Vector2f _drawing_position, Vector2f _centre, Vector2f _source_position, Vector2f _source_size, Vector2f _scale, float _rotation, Colour _tint);
+    void DrawFrame(AssetManager& _asset_manager, const std::string& _key, Vector2f _drawing_position, Vector2f _centre, Vector2f _frame_size, Vector2f _scale, int _index, float _rotation, Colour _tint);
 
 };

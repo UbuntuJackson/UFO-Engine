@@ -12,7 +12,7 @@ public:
     //virtual void DrawCircle(Vector2f _position, Vector2f _size, int _line_thickness) = 0;
     //virtual void DrawCircleFilled(Vector2f _position, Vector2f _size) = 0;
     virtual void DrawLine(Vector2f _start, Vector2f _end, const olc::Pixel& _colour) = 0;
-    virtual void DrawDecal(const std::string& _key, Vector2f _drawing_position, Vector2f _centre, Vector2f _source_position, Vector2f _source_size, Vector2f _scale, float _rotation, olc::Pixel _tint) = 0;
-    virtual void DrawFrame(const std::string& _key, Vector2f _drawing_position, Vector2f _centre, Vector2f _frame_size, Vector2f _scale, int _index, float _rotation, olc::Pixel _tint) = 0;
+    virtual void DrawDecal(AssetManager& _asset_manager,const std::string& _key, Vector2f _drawing_position, Vector2f _centre, Vector2f _source_position, Vector2f _source_size, Vector2f _scale, float _rotation, olc::Pixel _tint) = 0;
+    virtual void DrawFrame(AssetManager& _asset_manager,const std::string& _key, Vector2f _drawing_position, Vector2f _centre, Vector2f _frame_size, Vector2f _scale, int _index, float _rotation, olc::Pixel _tint) = 0;
 
 };

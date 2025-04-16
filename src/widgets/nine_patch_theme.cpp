@@ -19,7 +19,7 @@ void NinePatchTheme::OnDraw(Widget* _widget){
     Vector2f decal_size = AssetManager::Get().GetDecal(key)->sprite->Size();
 
     //Top-Left Piece
-    Graphics::Get().DrawDecal(key,
+    Graphics::Get().DrawDecal(AssetManager::Get() ,key,
         _widget->GetGlobalPosition() + Vector2f(-left_edge, -top_edge),
         Vector2f(0.0f, 0.0f),
         Vector2f(0.0f, 0.0f),
@@ -31,7 +31,7 @@ void NinePatchTheme::OnDraw(Widget* _widget){
 
     //Top-Middle Piece
      
-    Graphics::Get().DrawDecal(key,
+    Graphics::Get().DrawDecal(AssetManager::Get(),key,
         _widget->GetGlobalPosition()+Vector2f(0.0f, -top_edge),
         Vector2f(0.0f, 0.0f),
         Vector2f(left_edge, 0.0f),
@@ -43,7 +43,7 @@ void NinePatchTheme::OnDraw(Widget* _widget){
     
 
     //Top-Right Piece
-    Graphics::Get().DrawDecal(key,
+    Graphics::Get().DrawDecal(AssetManager::Get(),key,
         _widget->GetGlobalPosition() + Vector2f(_widget->rectangle.size.x, -top_edge),
         Vector2f(0.0f, 0.0f),
         Vector2f(right_edge, 0.0f),
@@ -54,7 +54,7 @@ void NinePatchTheme::OnDraw(Widget* _widget){
     );
 
     
-    Graphics::Get().DrawDecal(key,
+    Graphics::Get().DrawDecal(AssetManager::Get(),key,
         _widget->GetGlobalPosition()+Vector2f(-left_edge,0.0f),
         Vector2f(0.0f, 0.0f),
         Vector2f(0.0f, top_edge),
@@ -67,7 +67,7 @@ void NinePatchTheme::OnDraw(Widget* _widget){
 
     //Middle-Middle Piece
     
-    Graphics::Get().DrawDecal(key,
+    Graphics::Get().DrawDecal(AssetManager::Get(),key,
         _widget->GetGlobalPosition(),
         Vector2f(0.0f, 0.0f),
         Vector2f(left_edge, top_edge),
@@ -78,7 +78,7 @@ void NinePatchTheme::OnDraw(Widget* _widget){
 
     //Right-Middle Piece
     
-    Graphics::Get().DrawDecal(key,
+    Graphics::Get().DrawDecal(AssetManager::Get(),key,
         _widget->GetGlobalPosition()+Vector2f(_widget->rectangle.size.x, 0.0f),
         Vector2f(0.0f, 0.0f),
         Vector2f(right_edge, top_edge),
@@ -90,7 +90,7 @@ void NinePatchTheme::OnDraw(Widget* _widget){
     
 
     //Bottom-Left Piece
-    Graphics::Get().DrawDecal(key,
+    Graphics::Get().DrawDecal(AssetManager::Get(),key,
         _widget->GetGlobalPosition() + Vector2f(-left_edge, _widget->rectangle.size.y),
         Vector2f(0.0f, 0.0f),
         Vector2f(0.0f, bottom_edge),
@@ -103,7 +103,7 @@ void NinePatchTheme::OnDraw(Widget* _widget){
     //Bottom-Middle Piece
     
         
-    Graphics::Get().DrawDecal(key,
+    Graphics::Get().DrawDecal(AssetManager::Get(),key,
         _widget->GetGlobalPosition()+Vector2f(0.0f, _widget->rectangle.size.y),
         Vector2f(0.0f, 0.0f),
         Vector2f(left_edge, bottom_edge),
@@ -115,7 +115,7 @@ void NinePatchTheme::OnDraw(Widget* _widget){
     
 
     //Bottom-Right Piece
-    Graphics::Get().DrawDecal(key,
+    Graphics::Get().DrawDecal(AssetManager::Get(),key,
         _widget->GetGlobalPosition() + _widget->rectangle.size,
         Vector2f(0.0f, 0.0f),
         Vector2f(right_edge, bottom_edge),
