@@ -14,13 +14,9 @@
 #include "../json/json_variant.h"
 #include "../tilemap/tileset_data.h"
 #include "../ufo_benchmarker/ufo_benchmarker.h"
-#include "../custom/button_view_cameras.h"
-#include "../custom/button_view_sprite_references.h"
 #include "../ufo_vector_utils/find_in_vector.h"
 #include "../shapes/circle.h"
 #include "tcollision_body.h"
-#include "../custom/button_view_actors.h"
-#include "../custom/test_collision_body.h"
 #include "../background/background_image.h"
 #include "../animation/animated_sprite_reference.h"
 #include "level_trigger.h"
@@ -433,13 +429,13 @@ void Level::OnLoadActors(JsonDictionary& _actor_json){}
 void Level::OnResourceLoad(){}
 
 void Level::InitializeEditMode(){
-    NewActor(std::make_unique<ButtonViewCameras>(
+    /*NewActor(std::make_unique<ButtonViewCameras>(
         Engine::Get().pixel_game_engine.GetWindowSizeInPixles().x-215, 5, 210, 32));
 
     NewActor(std::make_unique<ButtonViewSpriteReferences>(
         Engine::Get().pixel_game_engine.GetWindowSizeInPixles().x-215, 400, 210, 32));
     NewActor(std::make_unique<ButtonViewActors>(
-        Engine::Get().pixel_game_engine.GetWindowSizeInPixles().x-215, 200, 210, 32));
+        Engine::Get().pixel_game_engine.GetWindowSizeInPixles().x-215, 200, 210, 32));*/
 }
 
 Camera* Level::GetActiveCamera(){

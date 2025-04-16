@@ -109,8 +109,8 @@ set(
     src/bitmap_level/colour_utils.cpp
     src/bitmap_level/ufo_global.cpp
 
-    src/custom/button_actor_config.cpp
-    src/custom/button_sprite_reference_config.cpp
+    #src/custom/button_actor_config.cpp
+    #src/custom/button_sprite_reference_config.cpp
 
     #src/ufo_lang/ufo_lang.cpp
     src/ufo_maths/ufo_maths.cpp
