@@ -1,6 +1,5 @@
 #include <algorithm>
 #include "drawing_system.h"
-#include "../camera/transformations.h"
 #include "../console/console.h"
 #include "../sprite_reference/sprite_reference.h"
 #include "../asset_manager/get_rect_from_index.h"
