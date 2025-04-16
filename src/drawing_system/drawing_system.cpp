@@ -82,14 +82,6 @@ DrawingSystem::Draw(const olc::vf2d& _point, Camera* _camera,  const olc::Pixel&
 
 }
 
-void
-DrawingSystem::Draw(const SpriteReference& _sprite, Camera* _camera){
-    if(!_sprite.visible) return;
-    //Console::Out("input for the transform",_sprite.position);
-    //DrawingSystem::Draw(_camera->Transform(_sprite));
-    //Console::Out(_camera->Transform(_sprite).position);
-}
-
 void DrawingSystem::DrawString(const olc::vf2d& _position,const std::string& _s, const olc::Pixel& _colour, const olc::vf2d& _scale){
     Engine::Get().pixel_game_engine.DrawStringDecal(_position, _s, _colour, _scale);
 }
