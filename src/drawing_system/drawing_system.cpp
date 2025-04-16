@@ -2,7 +2,6 @@
 #include "drawing_system.h"
 #include "../console/console.h"
 #include "../sprite_reference/sprite_reference.h"
-#include "../asset_manager/get_rect_from_index.h"
 #include "../ufo_engine/ufo_engine.h"
 #include "../keyboard/single_keyboard.h"
 
