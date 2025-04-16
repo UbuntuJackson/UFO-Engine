@@ -103,7 +103,7 @@ void
 DrawingSystem::Draw(const SpriteReference& _sprite, Camera* _camera){
     if(!_sprite.visible) return;
     //Console::Out("input for the transform",_sprite.position);
-    DrawingSystem::Draw(_camera->Transform(_sprite));
+    //DrawingSystem::Draw(_camera->Transform(_sprite));
     //Console::Out(_camera->Transform(_sprite).position);
 }
 

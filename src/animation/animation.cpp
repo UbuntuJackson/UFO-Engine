@@ -8,7 +8,6 @@
 #include "../external/olcPixelGameEngine.h"
 #include "../ufo_engine/ufo_engine.h"
 #include "../ufo_maths/ufo_maths.h"
-#include "../drawing_system/drawing_system.h"
 
 Animation::Animation(olc::vf2d _position) : Actor(_position){}
 
@@ -32,7 +31,7 @@ void Animation::OnUpdate(){
 
 void Animation::OnDraw(Camera* _camera){
     current_animation_state->position = position;
-    DrawingSystem::Draw(*current_animation_state, _camera);
+    current_animation_state->Draw(_camera);
 }
 
 //std::unique_ptr<Animation> Animation::Load(Json* _json){}

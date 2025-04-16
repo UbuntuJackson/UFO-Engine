@@ -15,7 +15,7 @@ BackgroundImage::BackgroundImage(std::string _key, olc::vf2d _position, olc::vf2
 
 void
 BackgroundImage::OnDraw(Camera* _camera){
-    olc::vf2d screen_size = Engine::Get().pixel_game_engine.GetWindowSizeInPixles();
+    /*olc::vf2d screen_size = Engine::Get().pixel_game_engine.GetWindowSizeInPixles();
 
     SpriteReference transformed_spr = SpriteReference(
         key,
@@ -36,7 +36,7 @@ BackgroundImage::OnDraw(Camera* _camera){
     
     transformed_spr.position.x += scaled_frame_size.x;
     transformed_spr.position.x = ufoMaths::Wrap(transformed_spr.position.x, -scaled_frame_size.x, scaled_frame_size.x);
-    DrawingSystem::Draw(transformed_spr);
+    DrawingSystem::Draw(transformed_spr);*/
 }
     
 void
