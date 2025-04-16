@@ -76,6 +76,7 @@ set(
     src/ufo_engine/ufo_engine.cpp
     src/level/level.cpp
     src/actor/actor.cpp
+    src/sprite_reference/abstract_sprite_reference.cpp
     src/sprite_reference/sprite_reference.cpp
     src/sprite_reference/widget_sprite_reference.cpp
     src/sprite_reference/level_sprite_reference.cpp

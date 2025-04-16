@@ -2,17 +2,18 @@
 #define WIDGET_SPRITE_REFERENCE
 
 #include <string>
-#include "sprite_reference.h"
 #include "../external/olcPixelGameEngine.h"
+#include "abstract_sprite_reference.h"
 
 class Camera;
 
-class WidgetSpriteReference : public SpriteReference{
+class WidgetSpriteReference : public AbstractSpriteReference{
 public:
-    WidgetSpriteReference(std::string _key, olc::vf2d _position, olc::vf2d _offset, olc::vf2d _frame_size, olc::vf2d _scale, float _rotation, int _z_index, bool _temporary = false);
-    void OnDraw(Camera*);
+
+    WidgetSpriteReference(std::string _key, olc::vf2d _position, olc::vf2d _offset, olc::vf2d _frame_size, olc::vf2d _scale, float _rotation);
+
     void OnWidgetDraw();
-    std::string GetType();
+    
 };
 
 #endif
