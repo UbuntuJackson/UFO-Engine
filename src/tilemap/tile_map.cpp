@@ -6,7 +6,14 @@
 #include "../level/level.h"
 #include "../json/json.h"
 #include "../json/json_variant.h"
+#include "../ufo_engine/ufo_engine.h"
 using namespace ufoMaths;
+
+void TileMap::OnLevelEnter(Level *_level){
+    Actor::OnLevelEnter(_level);
+    level = _level;
+
+}
 
 std::unique_ptr<TileMap>
 TileMap::Load(JsonDictionary& _layer){
