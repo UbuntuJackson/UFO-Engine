@@ -14,6 +14,11 @@ class FileDialogueButton;
 
 class FileDialogue : public Widget{
 public:
+    enum Modes{
+        WRITE,
+        READ,
+    };
+
     std::vector<std::string> path_stack;
     TextField* file_name_text_field = nullptr;
     std::vector<FileDialogueButton*> file_dialogue_buttons;
@@ -22,8 +27,10 @@ public:
     Button* b_cancel = nullptr;
 
     ScrollBar* scroll_bar = nullptr;
+
+    Modes file_dialogue_mode = Modes::WRITE;
     
-    FileDialogue(Vector2f _local_position, Vector2f size, std::string _directory);
+    FileDialogue(Modes _file_dialogue_mode, Vector2f _local_position, Vector2f size, std::string _directory);
 
     virtual bool OnAddFolder(const std::string& _directory_name);
 

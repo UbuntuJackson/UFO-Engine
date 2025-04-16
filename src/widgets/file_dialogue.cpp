@@ -13,7 +13,7 @@
 #include "file_dialogue_file_button.h"
 #include "../sprite_reference/widget_sprite_reference.h"
 
-FileDialogue::FileDialogue(Vector2f _local_position, Vector2f size, std::string _directory) : Widget(_local_position, size)
+FileDialogue::FileDialogue(Modes _file_dialogue_mode ,Vector2f _local_position, Vector2f size, std::string _directory) : Widget(_local_position, size)
 {
     path_stack.push_back(_directory);
 }
