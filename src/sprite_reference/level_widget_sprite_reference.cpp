@@ -18,7 +18,7 @@ AbstractSpriteReference(_key, _position,_offset,_frame_size, _scale, _rotation)
 void
 LevelWidgetSpriteReference::OnWidgetDraw(){
     if(!visible) return;
-    ufo::Rectangle sample_rectangle = GetFrameFromSpriteSheet(key,current_frame_index,frame_size);
+    ufo::Rectangle sample_rectangle = asset_manager->GetFrameFromSpriteSheet(key,current_frame_index,frame_size);
     Engine::Get().pixel_game_engine.DrawPartialRotatedDecal(
         GetGlobalPosition(),
         asset_manager->GetDecal(key),
