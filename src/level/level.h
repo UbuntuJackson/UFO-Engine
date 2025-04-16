@@ -15,6 +15,7 @@
 #include "../bitmap_level/bitmap_dynamic_solid.h"
 #include "../bitmap_level/bitmap_collision_body.h"
 #include "../asset_manager/asset_manager.h"
+#include "../widgets/widget.h"
 
 class RawShapeBase;
 class SpriteReference;
