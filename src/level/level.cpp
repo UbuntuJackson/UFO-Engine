@@ -219,7 +219,7 @@ void Level::Load(){
             if(background_path == "") continue;
 
             asset_manager.LoadDecal(relative_path+"/"+background_path, layer_dictionary.Get("name").AsString());
-            olc::vf2d image_size = asset_manager.GetDecal(background_path)->sprite->Size();
+            olc::vf2d image_size = asset_manager.GetDecal(layer_dictionary.Get("name").AsString())->sprite->Size();
 
             auto level_sprite_reference = NewActor<LevelSpriteReference>(
                 background_path,
