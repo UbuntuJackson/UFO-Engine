@@ -171,7 +171,7 @@ void Level::Load(){
             continue;
         }
 
-        if(layer_dictionary.Get("type").AsString() == "imagelayer" && (layer_dictionary.Get("class").AsString() == "" || layer_dictionary.Get("class").AsString() == "BackgroundImage")){
+        /*if(layer_dictionary.Get("type").AsString() == "imagelayer" && (layer_dictionary.Get("class").AsString() == "" || layer_dictionary.Get("class").AsString() == "BackgroundImage")){
             std::string background_path = layer_dictionary.Get("image").AsString();
 
             Console::Out("Found BackgroundImage: ",background_path);
@@ -205,9 +205,9 @@ void Level::Load(){
                 image_size,
                 olc::vf2d(1.0f, 1.0f),
                 0.0f, olc::vf2d(parallax_x, parallax_y)));
-        }
+        }*/
 
-        if(layer_dictionary.Get("type").AsString() == "imagelayer" && layer_dictionary.Get("class").AsString() == "SpriteReference"){
+        if(layer_dictionary.Get("type").AsString() == "imagelayer" /*&& layer_dictionary.Get("class").AsString() == "SpriteReference"*/){
             std::string background_path = layer_dictionary.Get("image").AsString();
             bool visible = layer_dictionary.Get("visible").AsInt();
 
