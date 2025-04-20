@@ -76,7 +76,7 @@ BitmapCollisionBody::OnUpdate(){
 bool
 BitmapCollisionBody::IsOverlapping(Level* _map, olc::Decal *_decal, std::string _layer, olc::vf2d _position, olc::Pixel _colour){
 
-    olc::Decal* collision_layer = _map->level_decals[_layer];
+    olc::Decal* collision_layer = _map->asset_manager.GetDecal(_layer);
 
     for(int y = int(_position.y); y < int(_position.y) + _decal->sprite->Size().y; y++){
         for(int x = int(_position.x); x < int(_position.x) + _decal->sprite->Size().x; x++){
@@ -123,7 +123,7 @@ BitmapCollisionBody::IsOverlappingSolid_Or_SemiSolid(Level* _map, olc::Decal *_d
 int
 BitmapCollisionBody::IsOverlappingHeight(Level* _map, olc::Decal *_decal, std::string _layer, olc::vf2d _position, olc::Pixel _colour){ //Pass in the map
 
-    olc::Decal* collision_layer = _map->level_decals[_layer];
+    olc::Decal* collision_layer = _map->asset_manager.GetDecal(_layer);
 
     for(int y = int(_position.y); y < int(_position.y) + _decal->sprite->Size().y; y++){
         for(int x = int(_position.x); x < int(_position.x) + _decal->sprite->Size().x; x++){
@@ -143,7 +143,7 @@ BitmapCollisionBody::IsOverlappingHeight(Level* _map, olc::Decal *_decal, std::s
 int
 BitmapCollisionBody::HeightUntilGround(Level* _map, olc::Decal *_decal, std::string _layer, olc::vf2d _position, olc::Pixel _colour){
 
-    olc::Decal* collision_layer = _map->level_decals[_layer];
+    olc::Decal* collision_layer = _map->asset_manager.GetDecal(_layer);
 
     for(int y = int(_position.y) + _decal->sprite->Size().y; y < int(_position.y) + _decal->sprite->Size().y + snap_to_ground; y++){
         for(int x = int(_position.x); x < int(_position.x) + _decal->sprite->Size().x; x++){

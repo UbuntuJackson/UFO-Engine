@@ -73,7 +73,7 @@ public:
     CollisionSystem collision_system;
 
     AssetManager asset_manager;
-    std::unordered_map<std::string, olc::Decal*> level_decals;
+    
     std::vector<BitmapDynamicSolid*> dynamic_bitmap_solid_handles;
     std::vector<BitmapCollisionBody*> bitmap_collision_body_handles;
 

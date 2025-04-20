@@ -112,9 +112,9 @@ Engine::OnUpdate(float _delta_time){
     pixel_game_engine.SetPixelMode(olc::Pixel::NORMAL);
     if(queued_levels.size() > 0){
         std::unique_ptr<Level> former_level = std::move(current_level);
-        for(auto [k,v] : former_level->level_decals){
+        /*for(auto [k,v] : former_level->level_decals){
             AssetManager::Get().RemoveAsset(k);
-        }
+        }*/
         current_level = std::move(queued_levels.back());
         current_level->Load();
         if(former_level->path != "") current_level->OnTransition(former_level.get());
