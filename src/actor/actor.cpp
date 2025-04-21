@@ -34,8 +34,10 @@ void Actor::AddChild(std::unique_ptr<Actor> _actor){
 
 void Actor::AddQueuedChildren(){
     
-    for(auto&& i : new_children_queue){
-        children.push_back(std::move(i));
+    for(auto&& child : new_children_queue){
+        child->OnStart(Engine::Get().current_level.get());
+
+        children.push_back(std::move(child));
     }
 
     for(const auto& child : children){
@@ -43,10 +45,6 @@ void Actor::AddQueuedChildren(){
     }
 
     UpdateGlobalPosition(olc::vf2d(0.0f, 0.0f));
-
-    for(const auto& child : new_children_queue){
-        child->OnStart(Engine::Get().current_level.get());
-    }
 
     new_children_queue.clear();
 }
