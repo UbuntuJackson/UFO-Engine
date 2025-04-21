@@ -44,7 +44,7 @@ void Actor::AddQueuedChildren(){
 
     UpdateGlobalPosition(olc::vf2d(0.0f, 0.0f));
 
-    for(const auto& child : children){
+    for(const auto& child : new_children_queue){
         child->OnStart(Engine::Get().current_level.get());
     }
 
