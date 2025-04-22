@@ -61,7 +61,7 @@ TileCollisionData Tilemap::GetTileCollisionData(const ufo::Rectangle& _rectangle
                         }
                     }
                     if(tile_id == SLOPE_22dot5_RIGHT_1){
-                        Console::PrintLine("SLOPE_22dot5_RIGHT_1");
+                        //Console::PrintLine("SLOPE_22dot5_RIGHT_1");
                         if(
                             ufoMaths::RayVsRay(
                                 Ray2(_rectangle.position+Vector2f(0.0f, _rectangle.size.y), _rectangle.position+_rectangle.size),
@@ -72,7 +72,7 @@ TileCollisionData Tilemap::GetTileCollisionData(const ufo::Rectangle& _rectangle
                         }
                     }
                     if(tile_id == SLOPE_22dot5_RIGHT_2){
-                        Console::PrintLine("SLOPE_22dot5_RIGHT_2");
+                        //Console::PrintLine("SLOPE_22dot5_RIGHT_2");
                         if(
                             ufoMaths::RayVsRay(
                                 Ray2(_rectangle.position+Vector2f(0.0f, _rectangle.size.y), _rectangle.position+_rectangle.size),
