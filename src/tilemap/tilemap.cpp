@@ -62,7 +62,7 @@ TileCollisionData Tilemap::GetTileCollisionData(const ufo::Rectangle& _rectangle
                         if(
                             ufoMaths::RayVsRay(
                                 Ray2(_rectangle.position+Vector2f(0.0f, _rectangle.size.y), _rectangle.position+_rectangle.size),
-                                Ray2(Vector2f(xx*16.0f,yy*16.0f) + Vector2f(0.0f, 16.0f), Vector2f(xx*16.0f,yy*16.0f) + Vector2f(16.0f, 8.0f))).is_hit)
+                                Ray2(Vector2f(xx*16.0f,yy*16.0f) + Vector2f(0.0f, 16.0f), Vector2f(xx*16.0f,yy*16.0f) + Vector2f(16.0f, 0.0f))).is_hit)
                         {
                             
                             place_free = false;
@@ -72,7 +72,7 @@ TileCollisionData Tilemap::GetTileCollisionData(const ufo::Rectangle& _rectangle
                         if(
                             ufoMaths::RayVsRay(
                                 Ray2(_rectangle.position+Vector2f(0.0f, _rectangle.size.y), _rectangle.position+_rectangle.size),
-                                Ray2(Vector2f(xx*16.0f,yy*16.0f) + Vector2f(0.0f, 8.0f), Vector2f(xx*16.0f,yy*16.0f) + Vector2f(16.0f, 0.0f))).is_hit)
+                                Ray2(Vector2f(xx*16.0f,yy*16.0f) + Vector2f(0.0f, 16.0f), Vector2f(xx*16.0f,yy*16.0f) + Vector2f(16.0f, 0.0f))).is_hit)
                         {
                             
                             place_free = false;
