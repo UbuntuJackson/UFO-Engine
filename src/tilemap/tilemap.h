@@ -27,8 +27,8 @@ public:
     const int HALF_RIGHT = 5;
     const int SLOPE45_BOTTOM_RIGHT = 10;
     const int SLOPE45_BOTTOM_LEFT = 15;
-    const int SLOPE_22dot5_RIGHT_1 = 6;
-    const int SLOPE_22dot5_RIGHT_2 = 7;
+    const int SLOPE_22dot5_RIGHT_1 = 6+5;
+    const int SLOPE_22dot5_RIGHT_2 = 7+5;
 
     std::vector<std::vector<int>> layer_data_sets;
     std::vector<std::vector<int>> foreground_layer_data_sets;
