@@ -26,7 +26,7 @@ TileCollisionData Tilemap::GetTileCollisionData(const ufo::Rectangle& _rectangle
             int tile_id = tilemap_collision_data[xx+yy*number_of_columns] - data.tileset_start_id + 1;
 
             if(tile_id != EMPTY){
-                if(tile_id != FULL) Console::PrintLine("TileId:",tile_id);
+                //if(tile_id != FULL) Console::PrintLine("TileId:",tile_id);
 
                 if(ufoMaths::RectangleVsRectangle(_rectangle, ufo::Rectangle(Vector2f(xx*16.0f,yy*16.0f), Vector2f(16.0f,16.0f)))){
                     overlapped_tiles.push_back(tile_id);
