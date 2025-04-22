@@ -9,7 +9,12 @@ public:
     bool checked = false;
     std::string text_ = "";
 
-    CheckBox(Vector2f _local_position, Vector2f _size, std::string _text_) : Label(_local_position, _size),text_{_text_}{}
+    CheckBox(Vector2f _local_position, Vector2f _size, std::string _text_, bool _on_by_default) : Label(_local_position, _size),
+    text_{_text_},
+    checked{_on_by_default}{
+        if(checked) text = text_ + "[x]";
+        else text = text_ + "[ ]";
+    }
 
     void OnWidgetHovered(){
         if(Mouse::Get().GetLeftButton().is_pressed){
