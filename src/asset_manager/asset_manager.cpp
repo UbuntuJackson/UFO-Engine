@@ -36,7 +36,7 @@ AssetManager::GetSprite(std::string _name) {
     if(!sprites.count(_name)){
         
         Console::Out("Sprite with key: " + _name + " does not exist");
-        return;
+        return nullptr;
     }
     return sprites.at(_name).get();
 }
