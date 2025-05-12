@@ -51,9 +51,11 @@ void AssetManager::LoadDecal(const std::string& _path, const std::string& _name)
     switch (spr->LoadFromFile(_path)){
         case olc::rcode::NO_FILE:
             Console::Out("Error: The file does not exist at path", _path);
+            return;
             break;
         case olc::rcode::FAIL:
             Console::Out("Error: Failed to load the file at path", _path);
+            return;
             break;
         default:
             break;
