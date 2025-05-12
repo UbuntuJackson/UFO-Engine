@@ -33,7 +33,11 @@ void AssetManager::LoadSprite(const std::string& _path, const std::string& _name
 
 olc::Sprite*
 AssetManager::GetSprite(std::string _name) {
-    if(!sprites.count(_name)) Console::Out("Sprite with key: " + _name + " does not exist");
+    if(!sprites.count(_name)){
+        
+        Console::Out("Sprite with key: " + _name + " does not exist");
+        return;
+    }
     return sprites.at(_name).get();
 }
 
