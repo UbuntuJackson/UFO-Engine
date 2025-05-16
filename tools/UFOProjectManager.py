@@ -206,3 +206,8 @@ class ProjectManager:
     
     def debug(self):
         os.system("cd build && gdb OUT")
+    
+    #Untested
+    def git_setup(self) -> bool:
+        ret = os.system("git submodule update --init --recursive")
+        return ret
