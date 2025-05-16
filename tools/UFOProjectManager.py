@@ -189,6 +189,11 @@ class ProjectManager:
     #Example
     #project.generate_project("-ggdb", "-G Ninja", "ninja" ,"-j6")
     def build(self,_cmake_args, _generator_option, _make_or_ninja , _make_or_ninja_args):
+        #Making a directory
+        if not os.path.exists(self.project_path+"/"+"build"):
+            os.mkdir(self.project_path+"/"+"build")
+        
+        #Go to directory and build
         ret = os.system("cd build && cmake .." + " " + _generator_option + " " + "-DCMAKE_CXX_FLAGS=" + '\"' + _cmake_args + '\"' + "&&" + _make_or_ninja + " " + _make_or_ninja_args)
         return (not ret)
         
