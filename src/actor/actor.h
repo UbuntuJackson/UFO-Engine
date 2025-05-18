@@ -3,6 +3,7 @@
 
 #include <memory>
 #include <vector>
+#include <cassert>
 #include "../external/olcPixelGameEngine.h"
 #include "../shapes/rectangle.h"
 
@@ -58,6 +59,23 @@ public:
     //Unused so far
     ufo::Rectangle editor_selection_shape = ufo::Rectangle(olc::vf2d(0.0f, 0.0f), olc::vf2d(16.0f,16.0f));
     std::unique_ptr<Actor> GetConfigurationWidget();
+
+    //If instantiated from editor
+    std::string editor_category = "";
+    //Which slot is this if instantiate via the editor?
+    int editor_slot_id = -1;
+    
+    bool is_instantiated_via_editor = false;
+
+    std::string GetEditorCategory(){
+        assert(is_instantiated_via_editor);
+        return editor_category;
+    }
+
+    int GetEditorSlotID(){
+        assert(is_instantiated_via_editor);
+        return editor_slot_id;
+    }
 
     //Accessible as soon as OnLevelEnter(Level*) is called.
     Actor* parent = nullptr;

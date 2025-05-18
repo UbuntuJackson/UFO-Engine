@@ -36,7 +36,7 @@ class Class:
     def generate_class(self):
         pass
 
-    def generate_json_to_cpp_bridge(self, _index):
+    def generate_json_to_cpp_bridge(self, _category, _index):
         default_actor_attributes = ["width", "height"]
         attribute_map = {
             "width": "shape.size.x",
@@ -71,6 +71,9 @@ class Class:
         
         code+= '                        }\n'
         code+= '                    }\n'
+        code+= '                    instance->is_instantiated_via_editor = true;\n'
+        code+= '                    instance->editor_category = \"'+_category+'\";\n'
+        code+= '                    instance->editor_slot_id = \"'+_index+'\";\n'
         code+= "                    return;\n"
         code+= "    "*4 + "}\n                break;\n"
         return code
@@ -150,7 +153,7 @@ class ProjectManager:
             for klass in category_classes:
                 type_index+=1
                 if klass == None: continue
-                generated_h += klass.generate_json_to_cpp_bridge(type_index)
+                generated_h += klass.generate_json_to_cpp_bridge(category_name,type_index)
             
             generated_h += "            }\n"
             generated_h += "        }\n"
