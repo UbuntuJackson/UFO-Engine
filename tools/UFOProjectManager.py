@@ -45,34 +45,34 @@ class Class:
         #Get classes
         code : str = ""
 
-        code += "    " + "case " + str(_index) + ":{\n"
-        code += "    "*3 + "auto instance = _level->NewActor<"+self.name+">"+ "(" + "Vector2f(_actor_json.Get(\"x\").AsFloat(), _actor_json.Get(\"y\").AsFloat()));\n"
+        code += "    "*4 + "case " + str(_index) + ":{\n"
+        code += "    "*5 + "auto instance = _level->NewActor<"+self.name+">"+ "(" + "Vector2f(_actor_json.Get(\"x\").AsFloat(), _actor_json.Get(\"y\").AsFloat()));\n"
         for arg in self.editor_attributes:
-            if arg[1] in default_actor_attributes: code += "    "*3 + "instance->"+ attribute_map[arg[1]]+ " = _actor_json.Get(\"" + arg[1] + "\").As" + arg[0]+'();\n'
+            if arg[1] in default_actor_attributes: code += "    "*5 + "instance->"+ attribute_map[arg[1]]+ " = _actor_json.Get(\"" + arg[1] + "\").As" + arg[0]+'();\n'
 
-        code += "            if(_actor_json.KeyExists(\"properties\")){\n"
-        code += "                JsonArray& property_json = _actor_json.Get(\"properties\").AsArray();\n"
-        code += "                for(auto&& _json : property_json.Iterable()){\n"
+        code += "                    if(_actor_json.KeyExists(\"properties\")){\n"
+        code += "                        JsonArray& property_json = _actor_json.Get(\"properties\").AsArray();\n"
+        code += "                        for(auto&& _json : property_json.Iterable()){\n"
 
-        code += "                   auto property_dict = _json->AsDictionary();\n"
+        code += "                            auto property_dict = _json->AsDictionary();\n"
 
         #For attributes that are in the properties object.
         for arg in self.editor_attributes:
             if not arg[1] in default_actor_attributes:
                 #                                                                           Use the alias, utilises index 2
-                if len(arg) == 3: code += '                    if(property_dict.Get(\"name\").AsString() == "' +arg[2] +'"){\n'
-                if len(arg) == 2: code += '                    if(property_dict.Get(\"name\").AsString() == "' +arg[1] +'"){\n'
-                code += '                        instance->'+ arg[1]+ ' = property_dict.Get(\"value\").As'+arg[0]+'();\n'
-                code += '                    }\n'
+                if len(arg) == 3: code += '                            if(property_dict.Get(\"name\").AsString() == "' +arg[2] +'"){\n'
+                if len(arg) == 2: code += '                            if(property_dict.Get(\"name\").AsString() == "' +arg[1] +'"){\n'
+                code += '                                instance->'+ arg[1]+ ' = property_dict.Get(\"value\").As'+arg[0]+'();\n'
+                code += '                            }\n'
 
                 #code+= '                    if(_json.GetAsString("name") == "' +arg[1] +'"){\n'
                 #code+= '                        instance->'+ arg[1]+ ' = _json.GetAs'+ arg[0] + '(\"'+ 'value' + '\");\n'
                 #code+= '                    }\n'
         
-        code+= '                }\n'
-        code+= '            }\n'
-
-        code+= "    "*2 + "}\n        break;\n"
+        code+= '                        }\n'
+        code+= '                    }\n'
+        code+= "                    return;\n"
+        code+= "    "*4 + "}\n                break;\n"
         return code
 
 class ProjectManager:
@@ -83,13 +83,18 @@ class ProjectManager:
         self.images = []
         self.audio_tracks = []
         self.source_files = []
+        self.categories : dict = {
+            #category : [class, class, class ...]
+        }
 
-    def import_actor(self,_header_file : str, _source_file : str = None):
+    def import_actor(self,_header_file : str, _source_file : str = None) -> Class:
         klass = Class(None, _header_file, _source_file)
 
         klass.export_variables_to_editor()
 
         self.classes.append(klass)
+
+        return klass
 
     def purge_attribute(_klass_name, _arg_name):
 
@@ -103,7 +108,7 @@ class ProjectManager:
                             del custom_property
 
     def generate_project(self):
-        
+        #Make generated.h        
         type_index : int = 0
 
         generated_h = ""
@@ -119,18 +124,43 @@ class ProjectManager:
         #All generated functions should be in namespace Generated
         generated_h += "namespace Generated{\n"
 
-        generated_h += "void ActorJsonBridge(Level* _level, JsonDictionary& _actor_json, std::string _actor_sheet){\n"
+        #for category_name, category_classes in self.categories.items():
+        #    
+        #    for klass in category_classes:
+        #        if klass == None: continue
+        #        generated_h += "namespace ns"+klass.name+"{\n"
+        #        generated_h += "std::string GetCategory(){return \""+category_name+"\";}\n"
+        #        generated_h += "}\n"
+        #    
+        #    pass
 
-        generated_h += "    auto actors_tileset_data = _level->tilemap.GetTilesetData(_actor_sheet);\n"
-        generated_h += "    int type_id = _actor_json.Get(\"gid\").AsInt() - actors_tileset_data.tileset_start_id+1;\n"
-        generated_h += "    switch(type_id){\n"
+        generated_h += "void ActorJsonBridge(Level* _level, JsonDictionary& _actor_json){\n"
 
-        for klass in self.classes:
-            type_index+=1
-            if klass == None: continue
-            generated_h += "    " + klass.generate_json_to_cpp_bridge(type_index)
+        #Editing, trying to go through categories instead{
         
-        generated_h += "    }\n}\n"
+        generated_h += "    for(auto&& data : _level->tilemap.tileset_data){\n"
+        for category_name, category_classes in self.categories.items():
+
+            #This would be the new type_index which is reset for every category.
+            generated_h += "        if(data.name == \""+ category_name +"\"){\n"
+            generated_h += "            int type_id = _actor_json.Get(\"gid\").AsInt() - data.tileset_start_id+1;\n"
+            generated_h += "            switch(type_id){\n"
+            
+            type_index : int = 0
+            for klass in category_classes:
+                type_index+=1
+                if klass == None: continue
+                generated_h += klass.generate_json_to_cpp_bridge(type_index)
+            
+            generated_h += "            }\n"
+            generated_h += "        }\n"
+            pass
+        generated_h += "    }\n"
+
+        #}
+
+        #Ending function
+        generated_h += "}\n"
 
         generated_h += "}" #Ending namespace
 
@@ -138,6 +168,7 @@ class ProjectManager:
         f.write(generated_h)
         f.close()
 
+        #Make the CMakeLists.txt
         cmake_lists_dot_txt = "cmake_minimum_required(VERSION 3.10)\nproject(OUT)\nadd_subdirectory(UFO-Engine) #CMakeLists.txt for engine is in folder called \"engine\"\nset(\n    SRC\n"
         
         for source_file in self.source_files:
@@ -206,8 +237,3 @@ class ProjectManager:
     
     def debug(self):
         os.system("cd build && gdb OUT")
-    
-    #Untested
-    def git_setup(self) -> bool:
-        ret = os.system("git submodule update --init --recursive")
-        return ret
