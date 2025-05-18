@@ -29,7 +29,7 @@ void Actor::AddChild(std::unique_ptr<Actor> _actor){
         _actor->LevelEnter(Engine::Get().current_level.get());
     }
     new_children_queue.push_back(std::move(_actor));
-    Console::Out("Added child");
+    
 }
 
 void Actor::AddQueuedChildren(){
