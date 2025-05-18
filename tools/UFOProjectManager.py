@@ -73,7 +73,7 @@ class Class:
         code+= '                    }\n'
         code+= '                    instance->is_instantiated_via_editor = true;\n'
         code+= '                    instance->editor_category = \"'+_category+'\";\n'
-        code+= '                    instance->editor_slot_id = '+_index+';\n'
+        code+= '                    instance->editor_slot_id = '+str(_index)+';\n'
         code+= "                    return;\n"
         code+= "    "*4 + "}\n                break;\n"
         return code
