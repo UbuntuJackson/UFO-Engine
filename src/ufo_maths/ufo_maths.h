@@ -30,6 +30,24 @@ tNumber Sign(tNumber _number){
     
 }
 
+float SignFloat(float _number){
+    if(std::abs(_number) < 0.001f) return 0.0f;
+    else if(_number > 0.0f) return 1.0f;
+    return -1.0f;
+}
+
+int SignInt(int _number){
+    if(_number < 0) return -1;
+    if(_number > 0) return 1;
+    return 0;
+}
+
+float PreciseSignFloat(float _number){
+    if(_number < 0.0f) return -1.0f;
+    if(_number > 0.0f) return 1.0f;
+    return 0.0f;
+}
+
 template<typename tNumber>
 bool AlmostZero(tNumber _number, tNumber _threshold){
     if(std::abs(_number) < std::abs(_threshold)) return true;
