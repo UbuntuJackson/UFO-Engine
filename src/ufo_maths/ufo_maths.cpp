@@ -103,6 +103,24 @@ RayVsCircleCollisionData RayVsCircle(Ray2 my_ray, Shape<Circle>* circle){
     return collision_data;
 }
 
+float SignFloat(float _number){
+    if(std::abs(_number) < 0.001f) return 0.0f;
+    else if(_number > 0.0f) return 1.0f;
+    return -1.0f;
+}
+
+int SignInt(int _number){
+    if(_number < 0) return -1;
+    if(_number > 0) return 1;
+    return 0;
+}
+
+float PreciseSignFloat(float _number){
+    if(_number < 0.0f) return -1.0f;
+    if(_number > 0.0f) return 1.0f;
+    return 0.0f;
+}
+
 /*CollisionData RayVsRay(Ray2 _v, Ray2 _w){
     //Equation
 
