@@ -101,7 +101,7 @@ public:
         rectangle.size.x = 0.0f;
     }
 
-    void OnUpdate(){
+    void WrapMenuUpdate(){
         //Adjusting size and positioning of buttons
         Refresh();
 
@@ -120,6 +120,14 @@ public:
             SingleKeyboard::Get().GetKey(olc::ENTER).is_pressed);
         
         ControlWithMouse();
+    }
+
+    void OnPaused(){
+        WrapMenuUpdate();
+    }
+
+    void OnUpdate(){
+        WrapMenuUpdate();
     }
 
     void OnPurge(Level *_level){
