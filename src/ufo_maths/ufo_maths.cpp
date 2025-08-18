@@ -103,6 +103,55 @@ RayVsCircleCollisionData RayVsCircle(Ray2 my_ray, Shape<Circle>* circle){
     return collision_data;
 }
 
+RayVsCircleCollisionData RayVsCircle(Ray2 my_ray, Circle* circle){
+    bool hit = false;
+
+    float ax = my_ray.Start().x;
+    float ay = my_ray.Start().y;
+    float bx = my_ray.End().x;
+    float by = my_ray.End().y;
+
+    float c = std::pow(ax-circle->position.x,2.0f) + std::pow(ay-circle->position.y,2.0f) - std::pow(circle->radius,2.0f);
+    float b = 2.0f * ((ax-circle->position.x) * (bx - ax) + (ay-circle->position.y) * (by - ay));
+    float a = std::pow(bx-ax,2.0f)+std::pow(by-ay,2.0f);
+
+    //Console::Out(circle->position);
+    //Console::Out(a,b,c);
+
+    float x1 = ufoMaths::PositiveReducedQuadraticEquation(a,b,c);
+    float x2 = ufoMaths::NegativeReducedQuadraticEquation(a,b,c);
+
+    //If things don't add up
+    if(std::isinf(x1) || std::isinf(x2) || std::isnan(x1) || std::isnan(x2)){
+        //hit = false;
+    }
+
+    float intersection_time = std::min(x1, x2);
+    float other_intersection_time = std::max(x1, x2);
+
+    if(x1 >= 0.0f && x1 <= 1.0f || x2 >= 0.0f && x2 <= 1.0f){
+        
+        hit = true;
+    }
+
+    olc::vf2d intersection_point = my_ray.Start() + intersection_time * my_ray.Size();
+    olc::vf2d other_intersection_point = my_ray.Start() + other_intersection_time * my_ray.Size();
+
+    olc::vf2d collision_normal = (intersection_point - circle->position).norm();
+
+    //RayVsCircle should have its own collisiondata class
+    RayVsCircleCollisionData collision_data = RayVsCircleCollisionData{
+        intersection_time,
+        other_intersection_time,
+        intersection_point,
+        other_intersection_point,
+        collision_normal,
+        hit
+    };
+
+    return collision_data;
+}
+
 float SignFloat(float _number){
     if(std::abs(_number) < 0.001f) return 0.0f;
     else if(_number > 0.0f) return 1.0f;

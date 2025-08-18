@@ -19,6 +19,7 @@ namespace ufoMaths{
 CollisionData RayVsRay(Ray2 _v, Ray2 _w);
 
 RayVsCircleCollisionData RayVsCircle(Ray2 my_ray, Shape<Circle>* circle);
+RayVsCircleCollisionData RayVsCircle(Ray2 my_ray, Circle* circle);
 
 //Precision. Should there be a global threshold to round to zero? Like 0.001.
 
