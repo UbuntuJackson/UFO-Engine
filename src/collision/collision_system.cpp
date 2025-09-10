@@ -486,7 +486,7 @@ void CollisionSystem::Draw(Camera* _camera){
     for(const auto& p : polygons){
         
         for(const auto& line : p){
-            Console::PrintLine(line.Start(), line.End());
+            
             Graphics::Get().DrawLine(_camera->Transform(line.Start()), _camera->Transform(line.End()), olc::YELLOW);
         }
     }
