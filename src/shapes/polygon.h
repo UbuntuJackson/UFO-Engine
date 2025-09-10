@@ -7,6 +7,7 @@
 namespace ufo{
 
 typedef std::vector<olc::vf2d> Polygon;
+typedef std::vector<Ray2> LineSegmentPolygon;
 
 }
 

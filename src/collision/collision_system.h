@@ -3,6 +3,7 @@
 #include <vector>
 #include "../shapes/circle.h"
 #include "../ufo_collision/collision_data.h"
+#include "../shapes/polygon.h"
 #include "../shapes/ray2.h"
 #include "../json/json_variant.h"
 
@@ -15,6 +16,9 @@ class Camera;
 class CollisionSystem{
 public:
     std::vector<Ray2> lines;
+
+    std::vector<ufo::LineSegmentPolygon> polygons;
+
     std::vector<Ray2> modified_lines;
     int collision_search_depth = 0;
     int counter = 0;

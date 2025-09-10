@@ -35,18 +35,31 @@ void CollisionSystem::Load(JsonDictionary& _json){
         if(ufoMaths::IsPolygonClockwise(points)){
             if(object.Get("name").AsString() != "") Console::Out("Loading clockwise polygon with name:",object.Get("name").AsString());
 
+            ufo::LineSegmentPolygon ls_polygon;
+
             for(int i = 0; i < points.size(); i++){
                 Ray2 line = Ray2(points[i], points[(i+1)%points.size()]);
                 lines.push_back(line);
+
+                ls_polygon.push_back(line);
+
             }
+
+            polygons.push_back(ls_polygon);
         }
         else{
             if(object.Get("name").AsString() != "") Console::Out("Loading counter clockwise polygon with name:",object.Get("name").AsString());
 
+            ufo::LineSegmentPolygon ls_polygon;
+
             for(int i = points.size()-1; i >= 0; i--){
                 Ray2 line = Ray2(points[(i+1)%points.size()],points[i]);
                 lines.push_back(line);
+
+                ls_polygon.push_back(line);
             }
+
+            polygons.push_back(ls_polygon);
         }
     }
 
@@ -469,6 +482,13 @@ void CollisionSystem::Draw(Camera* _camera){
         olc::vf2d middle_position = line.Start()+(line.End()-line.Start())/2.0f;
         DrawingSystem::Draw(Ray2(middle_position, middle_position+line.Normal().norm()*5.0f), _camera, olc::MAGENTA);
     }
+
+    for(const auto& p : polygons){
+        for(const auto line : p){
+            Graphics::Get().DrawLine(line.Start(), line.End(), olc::YELLOW);
+        }
+    }
+
     if(!Engine::Get().modified_collision_lines_visible) return;
     for(auto line : modified_lines){
         DrawingSystem::Draw(line, _camera, olc::Pixel(255, 0, 0, 40));
