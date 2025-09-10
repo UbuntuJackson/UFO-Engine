@@ -3,6 +3,7 @@
 
 #include <vector>
 #include "../external/olcPixelGameEngine.h"
+#include "ray2.h"
 
 namespace ufo{
 
